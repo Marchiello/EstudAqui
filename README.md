@@ -33,7 +33,7 @@ junto com este programa. Se não, veja <https://www.gnu.org/licenses/>.
 
 ##### Consulta de vagas:
 
-<img src="doc/diagrams/consultaVagas.png">
+<img align="center" src="doc/diagrams/consultaVagas.png">
 
 ##### Cadastro de Vagas/Oportunidades
 
@@ -45,7 +45,7 @@ junto com este programa. Se não, veja <https://www.gnu.org/licenses/>.
 
 ##### Contato:
 
-<img src="doc/diagrams/contato.png">
+<img align="center" src="doc/diagrams/contato.png">
 
 ---
 
