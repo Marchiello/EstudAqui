@@ -144,3 +144,74 @@ main::before{
 main.fade-out::before{
     opacity: 0;
 }
+
+/* Sobre */
+
+/* Contato */
+
+.containercontato {
+    background-color: rgba(0, 0, 0, 0.418);
+    width: 90vw;
+    height: 140vw;
+    margin: auto;
+    border-radius: 10%;
+    padding: 5vw;
+    text-align: center;
+    margin-top: 30vw;
+}
+
+.form-section {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.form-left, .form-right {
+    flex: 1;
+    min-width: 300px; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+.send-button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    float: right; 
+    margin-top: 20px;
+}
+
+.h2contato {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
