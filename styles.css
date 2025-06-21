@@ -10,6 +10,10 @@ body{
 }
 
 header {
+    z-index: 0;
+}
+
+.header-content{
     background-color: rgba(51, 51, 51, 0.521);
     height: 25vw;
     padding: 2vw;
@@ -29,11 +33,16 @@ header {
 
 .burger-menu{
     /* background-color: rgba(51, 51, 51, 0.521); */
-    height: fit-content;
+    /* height: fit-content; */
+    width: 15vw;
+    height: 15vw;
     margin: auto 20px auto 0;
     /* background-color: royalblue; */
     display: flex;
-
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 .burger-menu i{
@@ -50,6 +59,7 @@ header {
     border-radius: 10%;
     padding: 5vw;
     text-align: center;
+    margin-top: 30vw;
 }
 
 .container-header{
@@ -69,4 +79,68 @@ header {
     align-items: center;
     justify-content: center;
     color: white;
+    text-decoration: none;
+}
+
+.active{
+    background-color: rgba(255, 255, 255, 0.418);
+}
+
+.mobile-menu{
+    z-index: 999;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.911);
+    margin-top: -8vw;
+    width: 100vw;
+    border-top: 2px solid white;
+    display: none;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.mobile-menu-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* border: 2px solid white; */
+    border-bottom: 2px solid white;
+    height: 12vw;
+    /* display: none; */
+}
+
+/* -------------- */
+
+main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 1;
+    transform: opacity 1.5s ease-in-out;
+}
+
+main.fade-out::before{
+    opacity: 0;
 }
