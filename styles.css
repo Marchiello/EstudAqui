@@ -229,3 +229,89 @@ main {
     margin-bottom: 30px;
     font-size: 28px;
 }
+
+/* Vagas */
+
+.containervagas {
+    background-color: rgba(0, 0, 0, 0.418);
+    width: 90vw;
+    height: 120vw;
+    margin: auto;
+    border-radius: 10%;
+    padding: 5vw;
+    text-align: center;
+    margin-top: 30vw;
+}
+
+.h2vagas {
+    text-align: center;
+    color: #101010;
+    margin-bottom: 5vw;
+}
+
+.institution-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 120px; 
+}
+
+.institution-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; 
+}
+
+.institution-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 70%); 
+    z-index: 2; 
+    border-radius: 10px; 
+}
+
+ .institution-card-text {
+    color: white;
+    font-size: 28px; 
+    font-weight: bold;
+    padding: 0 20px;
+    z-index: 3; 
+    position: relative; 
+}
+
+.card-iftm .institution-card-overlay {
+    background: linear-gradient(to right, rgba(76, 175, 80, 0.7) 0%, rgba(76, 175, 80, 0.3) 30%, rgba(76, 175, 80, 0) 70%);
+}
+.card-uemg .institution-card-overlay {
+    background: linear-gradient(to right, rgba(175, 76, 80, 0.7) 0%, rgba(175, 76, 80, 0.3) 30%, rgba(175, 76, 80, 0) 70%);
+}
+.card-ufu .institution-card-overlay {
+    background: linear-gradient(to right, rgba(66, 133, 244, 0.7) 0%, rgba(66, 133, 244, 0.3) 30%, rgba(66, 133, 244, 0) 70%);
+}
+
+.container::-webkit-scrollbar {
+    width: 10px; 
+}
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 5px;
+}
+.container::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
