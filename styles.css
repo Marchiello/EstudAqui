@@ -245,8 +245,9 @@ main {
 
 .h2vagas {
     text-align: center;
-    color: #101010;
-    margin-bottom: 5vw;
+    color: var(--light-font-color);
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
 .institution-card {
