@@ -3,7 +3,7 @@
 ## Licença:
 -> No presente projeto, estamos utilizando a licença GPLv3(GNU General Public Licence).
 
-````
+```text
 EstudAqui
 Copyright (C) 2025  Marcello Vinhais, Lucas Gabriel, Ryan Clayton.
 
@@ -18,9 +18,8 @@ COMERCIABILIDADE ou ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO. Consulte a
 Licença Pública Geral GNU para obter mais detalhes.
 
 Você deve ter recebido uma cópia da Licença Pública Geral GNU
-junto com este programa. Se não, veja <https://www.gnu.org/licenses/>.
-
-````
+junto com este programa. Se não, veja [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
+```
 
 ## Introdução
 -> Um projeto EstudAqui criado à partir da matéria "Projeto Integrador Extensionista III" que visa reunir oportunidades educacionais e profissionalizantes em um só lugar, com a contribuição da sociedade para atualizar o sistema com as mesmas. Em suma, um **projeto que visa criar um portal de vagas educacionais e profissionalizantes.**
@@ -29,7 +28,7 @@ junto com este programa. Se não, veja <https://www.gnu.org/licenses/>.
 
 ### Diagramas:
 
-#### Diagrana de Atividade:
+#### Diagrama de Atividade:
 
 ##### Consulta de vagas:
 
@@ -44,9 +43,8 @@ activityDiagram
     if ( ) then (selecionar opção 'vagas'\n(no header da tela))
     else (Botão "Ver Oportunidades")
     endif
-
-    'Ambos os caminhos levam à Tela de Vagas'
     
+    %% Ambos os caminhos levam à Tela de Vagas
     TelaVagas: :Tela de vagas;
     
     :Seleciona a instituição;
@@ -57,7 +55,7 @@ activityDiagram
 
     if (O usuário quer\nver outras\noportunidades?) then (Sim)
         :clica 'X' no topo da\n'janela z-index' para\nfechá-la;
-        --> TelaVagas; 'Loop de volta para a tela de vagas'
+        --> TelaVagas; %% Loop de volta para a tela de vagas
     else (Não)
         stop
     endif
