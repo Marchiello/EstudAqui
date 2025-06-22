@@ -12,6 +12,12 @@
     color: white;
 }
 
+
+.header-nav, #login-button{
+    display: none;
+}
+
+
 body{
     background-image: url('doc/imgs/');
     background-color: black;
@@ -62,7 +68,6 @@ header {
 .container{
     background-color: var(--light-header-container-color);
     width: 90vw;
-    height: 80vw;
     margin: auto;
     border-radius: 10%;
     padding: 5vw;
@@ -103,7 +108,6 @@ header {
     border-top: 1px solid white;
     display: none;
     flex-direction: column;
-    transition: 0.5s;
 }
 
 .mobile-menu-button{
@@ -158,6 +162,35 @@ main {
 }
 
 /* ------------------------------ */
+/*              Login */
+
+.credentials{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-credentials{
+    width: 50vw;
+    height: 12vw;
+    margin-bottom: 15px;
+    font-size: 3vw;
+}
+
+.login-button{
+    color: white;
+    font-size: 6vw;
+    height: 15vw;
+    width: 50vw;
+    margin-bottom: 3vw;
+    background-color: transparent;
+}
+
+
+
+
+/* ------------------------------ */
 
 /* Sobre */
 
@@ -166,9 +199,9 @@ main {
 .containercontato {
     background-color: var(--light-header-container-color);
     width: 90vw;
-    height: 140vw;
+    /* height: 140vw; */
     margin: auto;
-    border-radius: 10%;
+    border-radius: 20px;
     padding: 5vw;
     text-align: center;
     margin-top: 30vw;
@@ -182,7 +215,7 @@ main {
 
 .form-left, .form-right {
     flex: 1;
-    min-width: 300px; 
+    min-width: 180px; 
 }
 
 .form-group {
@@ -220,6 +253,7 @@ main {
     font-size: 16px;
     font-weight: bold;
     float: right; 
+    margin-right: 20vw;
 
 }
 
@@ -233,11 +267,11 @@ main {
 /* Vagas */
 
 .containervagas {
-    background-color: rgba(0, 0, 0, 0.418);
+    background-color:var(--light-header-container-color);
     width: 90vw;
-    height: 120vw;
+    height: fit-content;
     margin: auto;
-    border-radius: 10%;
+    border-radius: 20px;
     padding: 5vw;
     text-align: center;
     margin-top: 30vw;
@@ -316,3 +350,146 @@ main {
 .container::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+
+input, textarea{
+    color: black;
+}
+
+    @media (min-width: 768px) {
+
+
+        .header-content{
+            height: 10vw;
+
+        }
+
+        header{
+            margin-top: 0px;
+            position: relative;
+        }
+
+        .burger-menu{
+            display: none;
+        }
+
+        .header-nav, #login-button{
+            display: flex;
+            margin: auto;
+            display: flex;
+            gap: 7vw;
+            /* background-color: #4CAF50; */
+            width: 50vw;
+            font-size: 4vw;
+            justify-content: center;
+            align-items: center;
+            height: 6vw;
+            font-size: 2.2vw;
+            transition: 0.5s;
+        }
+        
+        .header-nav a{
+            text-decoration: none;
+        }
+
+        #login-button{
+            width: 2em;
+            text-decoration: none;
+            color: green;
+            font-weight: bold;
+
+        }
+
+        .logo{
+            width: 20vw;
+            height: 7vw;
+            background-size: cover;
+            background-position: center center;
+            /* background-color: #4CAF50; */
+        }
+
+        .container{
+            margin-top: -5vw;
+            height: fit-content;
+            width: 60vw;
+            border-radius: 50px;
+            margin-bottom: 2vw;
+            font-size: 1vw;
+        }
+
+        .container-header{
+            /* background-color: #4CAF50; */
+            font-size: 2vw;
+            margin-bottom: 3vw;
+
+        }
+
+        .container-main{
+            font-size: 2vw;
+        }
+
+        .button{
+            margin-top: 5vw;
+            width: 40vw;
+            height: 10vw;
+            transition: 0.5s;
+        }
+
+        .button:hover{
+            background-color: #4caf4f5b;
+        }
+
+        .header-nav-option{
+            transition: 0.5s;
+            width: 18vw;
+            padding: 5px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .header-nav :hover{
+            color: rgb(0, 156, 34);
+        }
+
+        #login-button:hover{
+            color: white;
+        }
+
+        .containercontato{
+            margin-top: -4vw;
+            height: fit-content;
+            border-radius: 30px;
+        }
+
+        #description{
+            height: 12vw ;
+        }
+
+        .send-button{
+            margin-right: 34vw;
+            width: 12vw;
+            height: 4vw;
+        }
+
+        .containervagas{
+            margin-top: -5vw;
+        }
+
+        main{
+            padding-bottom: 2vw;
+        }
+
+        .login-credentials{
+            width: 40vw;
+            height: 6vw;
+            font-size: 2vw;
+        }
+
+        .container p{
+            font-size: 2vw;
+        }
+
+        .forget-password{
+            margin-left: 20vw;
+        }
+
+    }

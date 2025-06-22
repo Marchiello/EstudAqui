@@ -55,3 +55,6 @@ junto com este programa. Se não, veja <https://www.gnu.org/licenses/>.
 
 
 #### Diagrama de Caso de Uso:
+
+<img src="doc/diagrams/caso-uso.png">
+
