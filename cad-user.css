@@ -1,0 +1,209 @@
+
+
+button {
+    width: 90px;
+    cursor: pointer;
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    transition: transform, 0.5s, ease;
+}
+button:hover{
+    transform: translateY(-3px);
+    transition-duration: 0.3s;
+}
+.register-form{
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.418);
+    display: flex;
+    justify-content:center;
+
+}
+.part-esq{
+    padding: 10px 15px;
+    text-align: left;
+}
+.part-dir{
+    padding: 10px 15px;
+    text-align: left;
+}
+.form-group{
+    margin-bottom: 15px;    
+}
+.form-group label {
+    width: 900px;
+}
+.form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"],
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #555; 
+        border-radius: 5px;
+        background-color: #3a3a3a;
+        color: var(--branco);
+        font-size: 1em;
+        box-sizing: border-box; 
+        outline: none; 
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.form-btn{
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+        gap:50px;
+
+        display: flex;
+}
+.form-btn button{
+    
+    cursor: pointer;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.form-group select{
+        width: 50%;
+}
+.form-group input:focus {
+    border-color: var(--amarelo);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3); 
+}
+/* ------------------------------------------- */
+@media (max-width: 768px) {
+    .form-group {
+    display: flex;
+    flex-direction: column;
+}
+    .form-group input {
+        color: black;
+        padding: 1.5px;
+    }
+    .form-group {
+        margin-bottom: 18px;
+        text-align: left; /* Alinha labels à esquerda */
+        width: 100%;
+    }
+
+    .form-group label {
+        display: block; /* Garante que a label fique em sua própria linha */
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: var(--branco);
+        font-size: 0.95em;
+    }
+
+
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"],
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #555; /* Borda sutil */
+        border-radius: 5px;
+        background-color: #3a3a3a; /* Fundo do input mais escuro */
+        color: var(--branco);
+        font-size: 1em;
+        box-sizing: border-box; /* Inclui padding e border na largura total */
+        outline: none; /* Remove outline padrão ao focar */
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .form-group select{
+        width: 50%;
+    }
+    .form-group input:focus {
+        border-color: var(--amarelo); /* Borda amarela ao focar */
+        box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3); /* Sombra suave ao focar */
+    }
+
+    /* Estilo para inputs com erro */
+    .form-group input.error {
+        border-color: var(--vermelho-erro);
+    }
+
+    .error-message {
+        color: var(--vermelho-erro);
+        font-size: 0.85em;
+        margin-top: 5px;
+        display: block; /* Garante que a mensagem de erro fique em sua própria linha */
+        height: 1.2em; /* Para manter o layout estável, mesmo quando não há erro */
+        opacity: 0; /* Começa invisível */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .error-message.active {
+        opacity: 1; /* Torna visível quando há erro */
+    }
+
+    .form-status-message {
+        font-size: 0.9em;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        height: 1.5em; /* Para manter o layout estável */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .form-status-message.success {
+        color: var(--verde-sucesso);
+        opacity: 1;
+    }
+
+    .form-status-message.error {
+        color: var(--vermelho-erro);
+        opacity: 1;
+    }
+    .register-form {
+        flex-direction: column;
+        padding: 10px 15px;
+        border-radius: 30px;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        background-color: rgba(15, 15, 15, 0.418);
+    }
+    .form-btn{
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+        gap:50px;
+
+        display: flex;
+    }
+    .form-btn button{
+        
+        cursor: pointer;
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        background-color: #3a3a3a;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+
+    .form-group button:hover {
+        transform: translateY(-13px); /* Efeito sutil ao passar o mouse */
+    }
+    button {
+        width: 90px;
+        cursor: pointer;
+        border: none;
+        padding: 8px;
+        border-radius: 20px;
+        transition: transform, 0.5s, ease;
+    }
+    button:hover{
+        transform: translateY(-3px);
+        transition-duration: 0.3s;
+    }
+
+    #conteiner-principal{
+        height: 100%;
+        border-radius: 0px;
+        border-radius: 20px;
+    }
+}

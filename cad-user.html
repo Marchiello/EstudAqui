@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Usuário</title>
+    <script src="https://kit.fontawesome.com/4e15650a98.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="iconeSite.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cad-user.css">
+</head>
+<body>
+    <header>
+        <!-- <a href="" class="logo">
+
+        </a> -->
+
+        <div class="logo"></div>
+
+        <div class="burger-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav style="display: none;">
+            <a href="">Gavião</a>
+            <a href="">Gostosão</a>
+            <a href="">Bonito</a>
+        </nav>
+
+        <a id="login-button" href="" style="display: none;">Login</a>
+    </header>
+    <main>
+        <div class="container" id="conteiner-principal">
+
+            <div class="container-header">
+                
+                <h1>BEM VINDO(A)!</h1>
+                <br>
+                <h3>Faça aqui seu cadastro de usuário!</h3>
+            </div>
+
+            <h2>Dados de Acesso</h2>
+            <div class="container-main">
+                <form id="registerForm" class="register-form">
+                    <div class="part-esq">    
+                        <div class="form-group">
+                            <label for="username">Nome </label>
+                            <input type="text" id="username" name="username" placeholder="Ex: meuusuario123" required autocomplete="username">
+                            <small class="error-message" id="usernameError"></small>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Ex: seuemail@dominio.com" required autocomplete="email">
+                            <small class="error-message" id="emailError"></small>
+                        </div>
+    
+                        <div class="form-group">
+                                <label for="">Número (telefone)</label>
+                                <input type="text">
+                            </div>
+                        <div class="form-group">
+                            <label for="">CPF</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Sexo</label>
+                            <select name="" id="">
+                                <option value="" style="text-align: center;"></option>
+                                <option value="">Masculino</option>
+                                <option value="">Feminino</option>
+                                <option value="">Prefiro não dizer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                             <label for="">CEP</label>
+                             <input type="text">
+                         </div>
+                    </div>
+                    <!-- ----------------------------------- -->
+                     <div class="part-dir">
+                         
+                         <div class="form-group">
+                             <label for="">Endereço</label>
+                             <input type="text">
+                         </div>
+                         <div class="form-group" >
+                             <label for="">N°</label>
+                             <input type="text" style="width: 80px;">
+                             <!-- ------------ -->
+                              
+                         </div>
+                         <div class="form-group">
+                             <label for="">Bairro</label>
+                             <input type="text">
+                         </div>
+                         <div class="form-group">
+                             <label for="password">Senha</label>
+                             <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
+                             <small class="error-message" id="passwordError"></small>
+                         </div>
+                         <div class="form-group">
+                             <label for="confirmPassword">Confirmar Senha</label>
+                             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repita sua senha" required autocomplete="new-password">
+                             <small class="error-message" id="confirmPasswordError"></small>
+                         </div>                
+                         <p class="form-status-message" id="formStatusMessage"></p>
+                         <div class="form-btn">
+                             <button type="submit" class="delete-button">Excluir</button>
+                             <button type="submit" class="register-button">Cadastrar</button>
+                         </div>
+                         
+     
+                         <p class="login-redirect">Já tem uma conta? <a href="index.html">Faça login aqui!</a></p>
+    
+                     </div>
+                    
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <!-- <footer></footer> -->
+     <script src="script.js"></script>
+</body>
+</html>
