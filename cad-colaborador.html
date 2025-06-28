@@ -39,6 +39,7 @@
             <a href="sobre.html" class="mobile-menu-button">Sobre</a>
         </div>
     </header>
+
     <main>
         <div class="container" id="conteiner-principal">
 
@@ -51,8 +52,11 @@
 
             <h2>Dados de Acesso</h2>
             <div class="container-main" >
+
                 <form id="registerForm" class="register-form">
+
                     <div class="part-esq">
+
                         <div class="form-group">
                             <label for="username">Nome </label>
                             <input type="text" id="username" name="username" placeholder="Ex: meuusuario123" required autocomplete="username">
@@ -73,16 +77,7 @@
                             <label for="">CPF</label>
                             <input type="text">
                         </div>
-                        <div class="form-group">
-                            <label for="">Instituição</label>
-                            <div class="select-area" style="display: flex; font-size: 15px; gap: 12px; align-items: center;">
-                                <select name="" id="trocaIssoDepoisRyan">
-                                    <option value="">Selecione a Instituição</option>
-                                </select>
-                                <p class="cad-insituicao-redirect">Não tem sua Instituição? <a href="cad-instituicao.html" target="_blank">faça aqui o cadastro!</a></p>
-        
-                            </div>
-                        </div>
+                        <br>
                         <div class="form-group">
                             <label for="">Sexo</label>
                             <select name="" id="">
@@ -92,9 +87,25 @@
                                 <option value="">Prefiro não dizer</option>
                             </select>
                         </div>
+    
+                        <!-- <div class="form-group">
                         
-                    </div>
+                                <label for="">Instituição</label>
+                                <div class="select-area" style="display: flex; font-size: 15px; gap: 12px; align-items: center;">
+                                <select name="" id="trocaIssoDepoisRyan">
+                                    <option value="">Selecione a Instituição</option>
+                                </select>
+                            </div>
+                             <br>
+                                <p class="cad-insituicao-redirect">Não tem sua Instituição? <a href="cad-instituicao.html" target="_blank">faça aqui o cadastro!</a></p> -->
+<!--         
+                            </div>
+                        </div>  -->
+
+                        
+<!-- ============================================================================================================================================= -->
                     <div class="part-dir">
+
                         <div class="form-group">
                             <label for="">CEP</label>
                             <input type="text">
@@ -103,13 +114,17 @@
                             <label for="">Endereço</label>
                             <input type="text">
                         </div>
-                        <div class="form-group">
-                            <label for=" ">N°</label>
-                            <input type="text" style="width: 80px;">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Bairro</label>
-                            <input type="text">
+                        <div class="bairro-numero">
+                            <div class="form-group">
+                                <label for="">Bairro</label>
+                                <input type="text">
+                            </div>
+                            <div class="form-group" id="form-id-slc">
+                                <label for="">N°</label>
+                                <input type="text" style="width: 80px;">
+                                <!-- ------------ -->
+                                 
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Senha</label>
@@ -127,11 +142,10 @@
                             <button type="submit" class="delete-button">Excluir</button>
                             <button type="submit" class="register-button">Cadastrar</button>
                         </div>
-                        <p class="login-redirect">Já tem uma conta? <a href=".html">Faça login aqui!</a></p>
+                        <p class="login-redirect">Já tem uma conta? <a href="login.html">Faça login aqui!</a></p>
+                    </div>                 
                 </form>
-
             </div>
-
         </div>
     </main>
     <!-- <footer></footer> -->
