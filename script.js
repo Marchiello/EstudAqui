@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // script.js
 
 
-const apiUrl = 'http://localhost:3000/institutions';
+const apiUrl = '/institutions';
 const institutionsContainer = document.getElementsByClassName("institutions")[0];
 const siteHeader = document.querySelector("header");
 const siteMain = document.querySelector("main");
