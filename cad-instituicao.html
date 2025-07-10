@@ -1,20 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="institutionInfoStyle.css">
-    <title>EstudAqui - Vagas</title>
-
+    <title>EstudAqui - Cadastro de Instituição</title>
     <link rel="shortcut icon" href="\doc\icons\logo.svg" type="image/x-icon">
+    
+    <style>
+        body { font-family: sans-serif; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
+        .add-button, .remove-button, .submit-button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+        .add-button { background-color: #28a745; margin-top: 10px; }
+        .remove-button { background-color: #dc3545; }
+        .submit-button { background-color: #007bff; width: 100%; padding: 15px; font-size: 16px; margin-top: 20px;}
+        
+        .dynamic-entry-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        .dynamic-fields {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 5px;
+        }
+        
+        .course-block {
+            position: relative; 
+            border: 2px solid #007bff;
+            padding: 20px;
+            padding-top: 50px; 
+            border-radius: 8px;
+            margin-bottom: 25px; 
+        }
+        .course-main-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .course-remove-button {
+            position: absolute; 
+            top: 15px;          
+            right: 15px;         
+        }
+        .subjects-section {
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .subject-entry {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .subject-entry input { flex-grow: 1; }
+    </style>
 </head>
 <body>
+
     <div id="background-rotator">
         <div class="bg-layer"></div>
         <div class="bg-layer"></div>
     </div>
+
 
     <header>
         <div class="header-content">
@@ -42,124 +115,205 @@
     
     <main>
         <div class="container" id="conteiner-principal">
-
             <div class="container-header">
-                
-                <h1>BEM VINDO(A)!</h1>
-                <br>
+                <h1>BEM VINDO(A)!</h1><br>
                 <h3>Faça aqui o cadastro de sua Instituição!</h3>
             </div>
-
-            <h2>Dados de Acesso</h2>
+            
             <div class="container-main">
                 <form id="registerForm" class="register-form">
-                    <div class="part-esq">
-                        <div class="form-group">
-                            <label for="username">Nome da instituição </label>
-                            <input type="text" id="username" name="username" placeholder="Nome Instituição" required autocomplete="username">
-                            <small class="error-message" id="usernameError"></small>
-                        </div>
-        
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="Ex: seuemail@dominio.com" required autocomplete="email">
-                            <small class="error-message" id="emailError"></small>
-                        </div>
-        
-                        <div class="form-group">
-                                <label for="">Número</label>
-                                <input type="text">
-                            </div>
-                        <div class="form-group">
-                            <label for="">CNPJ</label>
-                            <input type="text">
-                        </div>
-
+                    <h2>Dados da Instituição</h2>
+                    <div class="form-group">
+                        <label for="institutionName">Nome da instituição</label>
+                        <input type="text" id="institutionName" name="institutionName" placeholder="Nome Completo da Instituição" required>
                     </div>
-                    <div class="part-dir">
-                        <div class="form-group">
-                            <label for="">CEP</label>
-                            <input type="text">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Endereço</label>
-                            <input type="text">
-                        </div>
-                        <div class="bairro-numero">
-                            <div class="form-group">
-                                <label for="">Bairro</label>
-                                <input type="text">
-                            </div>
-                            <div class="form-group" id="form-id-slc">
-                                <label for="">N°</label>
-                                <input type="text" style="width: 80px;">
-                                <!-- ------------ -->
-                                 
-                            </div>
-                        </div>
-                        <!-- <div class="form-group">
-                            <label for="password">Senha</label>
-                            <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
-                            <small class="error-message" id="passwordError"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirmar Senha</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repita sua senha" required autocomplete="new-password">
-                            <small class="error-message" id="confirmPasswordError"></small>
-                        </div>                
-                        <p class="form-status-message" id="formStatusMessage"></p> -->
-                        <br>
-                        <div class="form-btn">
-                            <button type="submit" class="delete-button">Excluir</button>
-                            <button type="submit" class="register-button">Cadastrar</button>
-                        </div>
-
+                    <div class="form-group">
+                        <label for="conciseInstitutionName">Nome Reduzido (Ex: UFU-Pontal)</label>
+                        <input type="text" id="conciseInstitutionName" name="conciseInstitutionName" placeholder="Sigla ou nome curto" required>
                     </div>
-            </form>
+                    <div class="form-group">
+                        <label for="locationUrl">URL de Localização do Google Maps (iframe)</label>
+                        <input type="text" id="locationUrl" name="locationUrl" placeholder="Cole o código <iframe> aqui">
+                    </div>
+
+                    <h2>Métodos de Ingresso</h2>
+                    <div class="form-group">
+                        <div id="ingressModesContainer"></div>
+                        <button type="button" id="addIngressModeBtn" class="add-button">Adicionar Método de Ingresso +</button>
+                    </div>
+                    
+                    <h2>Cursos</h2>
+                    <div class="form-group">
+                        <div id="coursesContainer"></div>
+                        <button type="button" id="addCourseBtn" class="add-button">Adicionar Curso +</button>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Cadastrar Instituição</button>
+                </form>
             </div>
-
         </div>
     </main>
 
     <script src="script.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
         const registerForm = document.getElementById("registerForm");
+        
+        // --- LÓGICA DE CRIAÇÃO DOS ELEMENTOS (NÃO MODIFICADA) ---
+        const ingressModesContainer = document.getElementById("ingressModesContainer");
+        const addIngressModeBtn = document.getElementById("addIngressModeBtn");
+        addIngressModeBtn.addEventListener("click", () => {
+            const entryWrapper = document.createElement("div");
+            entryWrapper.classList.add("dynamic-entry-wrapper");
+            const fieldsDiv = document.createElement("div");
+            fieldsDiv.classList.add("dynamic-fields");
+            const nameInput = document.createElement("input");
+            nameInput.type = "text";
+            nameInput.placeholder = "Nome do método (Ex: Vestibular, ENEM...)";
+            nameInput.classList.add("ingress-mode-name");
+            nameInput.required = true;
+            const descriptionTextarea = document.createElement("textarea");
+            descriptionTextarea.placeholder = "Texto com mais detalhes (Opcional)";
+            descriptionTextarea.classList.add("ingress-mode-description");
+            descriptionTextarea.rows = 2;
+            const removeBtn = document.createElement("button");
+            removeBtn.type = "button";
+            removeBtn.innerText = "Remover";
+            removeBtn.classList.add("remove-button");
+            removeBtn.onclick = () => entryWrapper.remove();
+            fieldsDiv.appendChild(nameInput);
+            fieldsDiv.appendChild(descriptionTextarea);
+            entryWrapper.appendChild(fieldsDiv);
+            entryWrapper.appendChild(removeBtn);
+            ingressModesContainer.appendChild(entryWrapper);
+        });
+
+        const coursesContainer = document.getElementById("coursesContainer");
+        const addCourseBtn = document.getElementById("addCourseBtn");
+        addCourseBtn.addEventListener("click", () => {
+            const courseBlock = document.createElement("div");
+            courseBlock.classList.add("course-block");
+            const removeCourseBtn = document.createElement("button");
+            removeCourseBtn.type = "button";
+            removeCourseBtn.innerText = "Remover Curso";
+            removeCourseBtn.classList.add("remove-button", "course-remove-button");
+            removeCourseBtn.onclick = () => courseBlock.remove();
+            const mainFields = document.createElement("div");
+            mainFields.classList.add("course-main-fields");
+            mainFields.innerHTML = `<input type="text" class="course-name" placeholder="Nome do Curso" required><input type="text" class="course-period" placeholder="Período - Ex: Manhã, Integral, Noturno" required><input type="text" class="course-duration" placeholder="Duração do curso - Ex: 2 anos (ou meses)" required>`;
+            const subjectsSection = document.createElement("div");
+            subjectsSection.classList.add("subjects-section");
+            const subjectsContainer = document.createElement("div");
+            const addSubjectBtn = document.createElement("button");
+            addSubjectBtn.type = "button";
+            addSubjectBtn.innerText = "Adicionar Matéria +";
+            addSubjectBtn.classList.add("add-button");
+            addSubjectBtn.onclick = () => {
+                const subjectEntry = document.createElement("div");
+                subjectEntry.classList.add("subject-entry");
+                const subjectInput = document.createElement("input");
+                subjectInput.type = "text";
+                subjectInput.placeholder = "Nome da Matéria";
+                subjectInput.classList.add("subject-name");
+                subjectInput.required = true;
+                const removeSubjectBtn = document.createElement("button");
+                removeSubjectBtn.type = "button";
+                removeSubjectBtn.innerText = "Remover";
+                removeSubjectBtn.classList.add("remove-button");
+                removeSubjectBtn.onclick = () => subjectEntry.remove();
+                subjectEntry.appendChild(subjectInput);
+                subjectEntry.appendChild(removeSubjectBtn);
+                subjectsContainer.appendChild(subjectEntry);
+            };
+            subjectsSection.appendChild(subjectsContainer);
+            subjectsSection.appendChild(addSubjectBtn);
+            courseBlock.appendChild(mainFields);
+            courseBlock.appendChild(subjectsSection);
+            courseBlock.appendChild(removeCourseBtn);
+            coursesContainer.appendChild(courseBlock);
+        });
 
         registerForm.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            const formData = {
-            institutionName: document.getElementById("username").value.trim(),
-            conciseInstitutionName: document.getElementById("username").value.trim(),
-            institutionImageURL: "",
-            backgroundImage: "",
-            verified: false,
-            routeMaps: [],
-            ingressModes: [],
-            courses: []
+            const ingressModesList = [];
+            document.querySelectorAll(".dynamic-entry-wrapper").forEach(wrapper => {
+                const nameInput = wrapper.querySelector(".ingress-mode-name");
+                const descriptionTextarea = wrapper.querySelector(".ingress-mode-description");
+                if (nameInput && nameInput.value.trim() !== "") {
+                    ingressModesList.push({
+                        mode: nameInput.value.trim(),
+                        text: descriptionTextarea.value.trim()
+                    });
+                }
+            });
+
+            const coursesList = [];
+            document.querySelectorAll(".course-block").forEach(courseBlock => {
+                const courseName = courseBlock.querySelector(".course-name").value.trim();
+                const coursePeriod = courseBlock.querySelector(".course-period").value.trim();
+                const courseDuration = courseBlock.querySelector(".course-duration").value.trim();
+                
+                if (courseName) {
+                    const subjectsList = [];
+                    courseBlock.querySelectorAll(".subject-name").forEach(subjectInput => {
+                        if (subjectInput.value.trim() !== "") {
+                            subjectsList.push(subjectInput.value.trim());
+                        }
+                    });
+                    
+                    coursesList.push({
+                        courseName: courseName,
+                        coursePeriod: coursePeriod,
+                        courseTime: courseDuration,
+                        subjects: subjectsList
+                    });
+                }
+            });
+
+            const newInstitution = {
+                institutionName: document.getElementById("institutionName").value.trim(),
+                conciseInstitutionName: document.getElementById("conciseInstitutionName").value.trim(),
+                institutionImageURL: "", // Campo vazio como solicitado
+                backgroundImage: "",   // Campo vazio como solicitado
+                verified: false,       // Padrão 'false' para novas instituições
+                routeMaps: [
+                    { routeName: "route-1", iframeUrl: "" },
+                    { routeName: "route-2", iframeUrl: "" },
+                    { 
+                        routeName: "institutionLocation", 
+                        iframeUrl: document.getElementById("locationUrl").value.trim() 
+                    }
+                ],
+                ingressModes: ingressModesList,
+                courses: coursesList
             };
 
-            console.log("Dados preenchidos:", formData);
-
-            fetch('http://127.0.0.1:3000/addInstitution', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
+            fetch('/addInstitution', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newInstitution)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    // Se a resposta não for OK, rejeita a promise para cair no .catch
+                    return response.json().then(err => Promise.reject(err));
+                }
+                return response.json();
+            })
             .then(data => {
-            console.log("Resposta do servidor:", data);
-            alert("Instituição cadastrada com sucesso!");
+                console.log("Resposta do servidor:", data);
+                alert("Instituição cadastrada com sucesso!");
+                registerForm.reset();
+                ingressModesContainer.innerHTML = '';
+                coursesContainer.innerHTML = '';
             })
             .catch(error => {
-            console.error("Erro ao enviar:", error);
-            alert("Erro ao cadastrar instituição.");
+                console.error("Erro ao enviar:", error);
+                alert("Erro ao cadastrar instituição. Verifique o console para mais detalhes.");
             });
         });
-        });
+    });
     </script>
-
-
-    </body>
+</body>
 </html>
