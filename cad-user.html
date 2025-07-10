@@ -49,6 +49,7 @@
             </div>
 
             <h2>Dados de Acesso</h2>
+            <br>
             <div class="container-main">
                 <form id="registerForm" class="register-form">
                     <div class="part-esq">    
@@ -65,7 +66,12 @@
                         </div>
     
                         <div class="form-group">
-                                <label for="">Número (telefone)</label>
+                                <label for="">
+                                    <div>
+                                        Número
+
+                                    </div>
+                                </label>
                                 <input type="text">
                             </div>
                         <div class="form-group">
@@ -81,28 +87,30 @@
                                 <option value="">Prefiro não dizer</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                             <label for="">CEP</label>
-                             <input type="text">
-                         </div>
                     </div>
                     <!-- ----------------------------------- -->
                      <div class="part-dir">
-                         
+                        <div class="form-group">
+                            <label for="">CEP</label>
+                            <input type="text">
+                        </div>
                          <div class="form-group">
                              <label for="">Endereço</label>
                              <input type="text">
                          </div>
-                         <div class="form-group" >
-                             <label for="">N°</label>
-                             <input type="text" style="width: 80px;">
-                             <!-- ------------ -->
-                              
+                         <div class="bairro-numero">
+                             <div class="form-group">
+                                 <label for="">Bairro</label>
+                                 <input type="text">
+                             </div>
+                             <div class="form-group" id="form-id-slc">
+                                 <label for="">N°</label>
+                                 <input type="text" style="width: 80px;">
+                                 <!-- ------------ -->
+                                  
+                             </div>
                          </div>
-                         <div class="form-group">
-                             <label for="">Bairro</label>
-                             <input type="text">
-                         </div>
+                         <br>
                          <div class="form-group">
                              <label for="password">Senha</label>
                              <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
