@@ -9,7 +9,7 @@ if(!MONGO_URI){
   console.error("Erro: A Variavel MONGO_URI Não foi encontrada no arquivo .env")
 }
 
-
+const path = require('path')
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -17,6 +17,8 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, '..')))
 
 // 1. Crie o Schema de ROUTE-MAP
 const RouteMapSchema = new mongoose.Schema({
