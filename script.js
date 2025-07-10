@@ -202,6 +202,7 @@ function addListenerSelection(){
                 siteHeader.style.display = "none";
                 siteMain.style.display = "none";
                 institutionInfoContainer.style.display = "block"
+                preMainTitle.innerHTML = `<h2>Informações Gerais</h2>`;
 
                 loadInstitutionCourses(selectedInstitution)
                 
