@@ -1,0 +1,424 @@
+.institution-info-container{
+    background-color: white;
+    width: 90vw;
+    margin: 2vw auto auto auto;
+    border-radius: 20px;
+    color: black;
+}
+
+.institution-main-container-header{
+    color: white;
+    font-size: 5vw;
+}
+
+.institution-info-header{
+    display: flex;
+    font-size: 2.5vw;
+    justify-content: space-between;
+    text-align: center;
+    padding: 1em;
+    height: 15vw;
+    
+}
+
+.zindex-icon{
+    font-size: 8vw;
+    width: 12vw;
+    color: black;
+    margin: 0px 1.2vw 0px 1.2vw;
+}
+
+.institution-menu-button{
+    position: relative;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    line-height: 0;
+    height: 15vw;
+    z-index: 9999;
+    margin-top: -3.5vw;
+}
+
+.active-menu-button{
+    transform: rotate(180deg);
+    position: fixed;
+    margin-top: -6vw;
+}
+
+.institution-menu-button-icon{
+    width: 12vw;
+    height: 12vw;
+    position: relative;
+    text-align: center;
+    font-size: 10vw;
+    line-height: 10vw;
+    top: 4vw;
+    transition: 0.5s;
+    transform: rotate(0deg);
+}
+
+.institution-info-pre-main{
+    text-align: center;
+    font-size: 3vw;
+}
+
+.pre-main-title{
+    width: 60vw;
+    border: 2px solid black;
+    border-radius: 40px;
+    margin: 2vh auto 5vh auto;
+}
+
+.institution-pre-main-menu{
+    display: flex;
+    font-size: 4vw;
+}
+
+.pre-main-menu-option{
+    width: 50%;
+    height: 12vw;
+}
+
+.institution-info-main{
+    background-color: rgb(201, 199, 199);
+    padding: 4vw 0px 4vw 0px;
+    border-radius: 0px 0px 20px 20px;
+    height: max-content;
+    
+}
+
+.institution-info-main-container{
+    min-height: 100vw;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    width: 85vw;
+    text-align: center;
+}
+
+.institution-info-main-container p{
+    color: black;
+}
+
+.imch-checkbox{
+    display: flex;
+    height: 20vw;
+    justify-content: space-between;
+    font-size: 4.5vw;
+    gap: 8vw;
+}
+
+.imch-checkbox-div{
+    margin: auto;
+}
+
+#institution-main-container-header-map{
+    height: 100vw;
+    margin: auto;
+    border: 2px solid ;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.header-institution-name{
+    margin: auto auto 8vw auto;
+    width: 80vw;
+}
+
+.header-exit-button{
+    margin-left: auto;  
+}
+
+/* ----------------------------- */
+/* ----------------------------- */
+
+.institution-info-menu{
+
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    transform: translateX(-120%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.opened-menu{
+    transform: translateX(0)
+}
+
+.institution-info-menu-container{
+    background-color: rgb(209, 209, 209);
+    width: 70vw;
+    height: 98vh;
+    padding-bottom: 5vw;
+    border-radius: 20px;
+    overflow: scroll;
+    position: relative;
+    top: 1.5vw;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.596);
+}
+
+.institution-menu-container-options{
+    margin: auto;
+}
+
+.menu-container-option, #menu-button-space{
+    background-color: rgb(255, 255, 255);
+    min-height: 14vw;
+    display: flex;
+    font-size: 4vw;
+    margin-bottom: 0.6vw;
+    padding: 5vw 0px 5vw 0px;
+}
+
+#menu-button-space{
+    position: fixed;
+    width: 70vw;
+    height: 4vw;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    border-bottom: 2px solid rgb(211, 211, 211);
+}
+
+#general-options{
+    background-color: rgb(112, 231, 128);
+    margin-top: 14vw;
+}
+
+#general-options:active{
+    background-color: rgb(72, 175, 86);
+}
+
+.menu-container-option-symbol{
+    margin: 0vw 2vh 0px 4vw;
+    font-size: 4vw;
+}
+
+.menu-container-option:active{
+    background-color: rgb(204, 204, 204);
+}
+
+/* ----------------------- */
+
+.generic-info-placeholder{
+    border-radius: 20px;
+    border:2px solid;
+    margin: 2vh 0px 4vh 0px;
+}
+
+/* ------------------------ */
+
+.institution-course-info{
+    text-align: start;
+}
+
+.institution-main-container-main{
+    font-size: 4vw;
+}
+
+.course-subject{
+    background-color: rgb(212, 212, 212);
+    border-radius: 15px;
+    font-size: 4vw;
+    min-height: 10vw;
+    line-height: 10vw;
+    transition: 0.5s;
+    margin-bottom: 1vw;
+}
+
+.course-subject:hover{
+    background-color: rgb(170, 170, 170);
+    transform: scale(1.05);
+}
+
+    @media (min-width: 768px) {
+
+        .institution-info-container{
+            padding: 0px;
+            width: 75vw;
+            position: relative;
+            left: 10vw;
+        }
+
+        .institution-info-header{
+            background-color: rgb(201, 199, 199);
+            height: 4vw;
+            width: 75vw;
+            border-radius: 20px 20px 0px 0px;
+            font-size: 0.1vw;
+            margin: 0;
+        }
+
+        .zindex-icon{
+            font-size: 30em;;
+        }
+
+        .header-exit-button{
+            margin-left: 60vw;
+        }
+
+        .institution-menu-button-icon{
+            display: none;
+        }
+
+        .header-institution-name{
+            width: 20vw;
+        }
+
+        .institution-info-pre-main{
+            font-size: 1.2em;
+            padding-top: 3vw;
+        }
+
+        .pre-main-title{
+            margin-top: -5vw;
+            height: 3em;
+            line-height: 3em;
+        }
+
+        .institution-info-menu, #menu-button-space{
+            width: 20vw ;
+            transform: translateX(0);
+            left: 2.5vw;
+            font-size: 2vw;
+        }
+        .menu-container-option{
+            height: 2vw;
+            width: 20vw;
+            font-size: 1em;
+        }
+
+        .menu-container-option-symbol, .menu-container-option-name{
+            font-size: 1.3vw;
+        }
+
+        .institution-info-menu-container{
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        #menu-button-space{
+            min-height: auto;
+            padding: 0 1em;
+            left: 0;
+        }
+
+        .institution-info-main{
+            width: 75vw;
+            min-height: auto;
+            margin-bottom: 2vw;
+        }
+
+        .institution-info-main-container{
+            width: 70vw;
+            margin-top: -2vw;
+            min-height: auto;
+            height: fit-content;
+
+        }
+
+        .menu-container-option, #general-options{
+            min-height: auto;
+            min-height: 5vw;
+            max-height: auto;
+            padding: 0 1em;
+            display: flex;
+            width: auto;
+        }
+
+        .menu-container-option-symbol{
+            margin: auto 1vw auto 0;
+        }
+
+        .menu-container-option-name{
+            margin: auto 0 auto 0;        
+        }
+
+        #general-options{
+            margin-top: 4vw;
+        }
+
+        .institution-pre-main-menu{
+            font-size: 1em;
+            padding: 0 auto;
+        }
+
+        .pre-main-menu-option{
+            margin-top: 1vw;
+            height: 5vw;
+            padding: 1em;
+            
+        }
+
+        .institution-main-container-header{
+            font-size: 2vw;
+        }
+
+        .imch-checkbox{
+            justify-content: center;
+            margin-top: 3vw;
+            height: 8vw;
+        }
+
+        .imch-checkbox-div{
+            margin: 0;
+            font-size: 2vw;
+        }
+
+        .imch-checkbox-div input{
+            width: 2em;
+            height: 2em;
+        }
+
+        .institution-main-container-header-map{
+            margin: 0;
+        }
+
+        #institution-main-container-header-map{
+            height: 70vh;
+        }
+
+        .course-subjects-container{
+            display: grid;
+            grid-template-areas:
+            "auto auto auto" ;
+            gap: 1vw;
+        }
+        
+        .course-subject{
+            font-size: 1.2vw;
+            min-height: auto;
+            height: 5vw;
+            line-height: 1.4vw;
+            padding: 1.5vw;
+        }  
+
+        h3{
+            font-size: 2vw;
+            margin: 0;
+        }
+        
+        .generic-info-placeholder{
+            width: 40vw;
+            min-height: 8vw;
+            margin: 2vw auto auto auto;
+            font-size: 2vw;
+            border-radius: 20px;
+            border:2px solid;
+        }
+
+        .course-subjects-container{
+            text-align: center;
+            margin: auto;
+            width: fit-content;
+        }
+
+        .course-subjects-container span{
+            font-size: 2vw;
+        }
+
+    }

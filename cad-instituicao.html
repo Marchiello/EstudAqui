@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Instituição</title>
-    <script src="https://kit.fontawesome.com/4e15650a98.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="iconeSite.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="cad-user.css">
+    <link rel="stylesheet" href="institutionInfoStyle.css">
+    <title>EstudAqui - Vagas</title>
+
+    <link rel="shortcut icon" href="\doc\icons\logo.svg" type="image/x-icon">
+
 </head>
 <body>
     <div id="background-rotator">
         <div class="bg-layer"></div>
         <div class="bg-layer"></div>
     </div>
-        <header>
+
+    <header>
         <div class="header-content">
            
             <a href="index.html" class="logo"></a>
             <div class="burger-menu">
-                <i class="fa-solid fa-bars"></i>
+                <img src="doc\icons\burger-bar.png" alt="">
             </div>
             <nav class="header-nav">
                 <a class="header-nav-option" href="vagas.html">Vagas</a>
-                <a class="header-nav-option" href="">Cadastro</a>
+                <a class="header-nav-option" href="cad-user.html">Cadastro</a>
                 <a class="header-nav-option" href="contato.html">Contato</a>
                 <a class="header-nav-option" href="sobre.html">Sobre</a>
+                <a id="login-button" href="login.html">Login</a>
             </nav>
-            <a id="login-button" href="login.html">Login</a>
         </div>
         <div class="mobile-menu">
             <a href="vagas.html" class="mobile-menu-button">Vagas</a>
             <a href="login.html" class="mobile-menu-button">Login</a>
-            <a href="" class="mobile-menu-button">Cadastro</a>
+            <a href="cad-user.html" class="mobile-menu-button">Cadastro</a>
             <a href="contato.html" class="mobile-menu-button">Contato</a>
             <a href="sobre.html" class="mobile-menu-button">Sobre</a>
         </div>
@@ -54,7 +56,7 @@
                     <div class="part-esq">
                         <div class="form-group">
                             <label for="username">Nome da instituição </label>
-                            <input type="text" id="username" name="username" placeholder="Ex: meuusuario123" required autocomplete="username">
+                            <input type="text" id="username" name="username" placeholder="Nome Instituição" required autocomplete="username">
                             <small class="error-message" id="usernameError"></small>
                         </div>
         
@@ -114,7 +116,46 @@
 
         </div>
     </main>
-    <!-- <footer></footer> -->
-     <script src="script.js"></script>
-</body>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const registerForm = document.getElementById("registerForm");
+
+        registerForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = {
+            institutionName: document.getElementById("username").value.trim(),
+            conciseInstitutionName: document.getElementById("username").value.trim(),
+            institutionImageURL: "",
+            backgroundImage: "",
+            verified: false,
+            routeMaps: [],
+            ingressModes: [],
+            courses: []
+            };
+
+            console.log("Dados preenchidos:", formData);
+
+            fetch('http://127.0.0.1:3000/addInstitution', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+            console.log("Resposta do servidor:", data);
+            alert("Instituição cadastrada com sucesso!");
+            })
+            .catch(error => {
+            console.error("Erro ao enviar:", error);
+            alert("Erro ao cadastrar instituição.");
+            });
+        });
+        });
+    </script>
+
+
+    </body>
 </html>

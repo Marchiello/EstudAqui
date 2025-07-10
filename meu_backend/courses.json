@@ -1,0 +1,856 @@
+[
+  {
+    "institutionName": "UEMG - Universidade do Estado de Minas Gerais (Unidade Ituiutaba)",
+    "conciseInstitutionName": "UEMG-ITBA",
+    "institutionImageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Uemg.png/500px-Uemg.png",
+    "backgroundImage": "",
+    "verified": true,
+    "routeMaps": [
+      {
+        "routeName": "route-1",
+        "iframeUrl": ""
+      },
+      {
+        "routeName": "route-2",
+        "iframeUrl": ""
+      },
+      {
+        "routeName": "institutionLocation",
+        "iframeUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.094208311902!2d-49.451046324797!3d-18.971446382211706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a231f85a27dc17%3A0xec47d16b1b2658fa!2sUEMG%20Unidade%20Ituiutaba!5e0!3m2!1spt-BR!2sbr!4v1752061842854!5m2!1spt-BR!2sbr"
+      }
+    ],
+    "ingressModes": [
+      {
+        "mode": "ENEM",
+        "text": "Ingresso por meio do ENEM e Sistema SISU."
+      },
+      {
+        "mode": "Vestibular",
+        "text": "Ingresso direto via vestibular próprio da UEMG."
+      }
+    ],
+    "courses": [
+      {
+        "courseName": "Ciências Biológicas",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Fundamentos da Educação",
+          "Genética",
+          "Morfofisiologia Vegetal",
+          "Ciências Moleculares e Celulares",
+          "Didática – Planejamento e Avaliação",
+          "Química Geral",
+          "Anatomia Geral e Comparada",
+          "Microbiologia Básica",
+          "Políticas Públicas da Educação Básica",
+          "Psicologia da Educação e da Aprendizagem",
+          "Física e Biofísica",
+          "Histologia e Embriologia Comparada",
+          "Metodologia Científica",
+          "Metodologia do Ensino de Ciências e Biologia",
+          "Biologia Molecular e Evolução",
+          "Educação de Jovens e Adultos",
+          "Educação e Tecnologias",
+          "Metabolismo Celular",
+          "Diversidade de Criptógamas",
+          "Ecologia e Sustentabilidade",
+          "Educação e Diversidade",
+          "Educação Inclusiva",
+          "Zoologia de Invertebrados e Parasitologia",
+          "Fisiologia Comparada"
+        ]
+      },
+      {
+        "courseName": "Psicologia",
+        "coursePeriod": "Integral",
+        "courseTime": "5 anos",
+        "subjects": [
+          "Metodologia Científica",
+          "Anátomo‑fisiologia",
+          "Leitura e Produção de Textos",
+          "Filosofia",
+          "Psicologia Geral",
+          "Psicologia do Desenvolvimento",
+          "Psicologia Social",
+          "Psicopatologia",
+          "Estágio Curricular",
+          "Ética Profissional"
+        ]
+      },
+      {
+        "courseName": "Direito",
+        "coursePeriod": "Matutino e Noturno",
+        "courseTime": "5 anos",
+        "subjects": [
+          "Introdução ao Estudo do Direito",
+          "Teoria Geral do Estado",
+          "Direito Constitucional",
+          "Direito Civil",
+          "Direito Penal",
+          "Direito Administrativo",
+          "Processo Civil",
+          "Processo Penal",
+          "Filosofia do Direito",
+          "Ética Jurídica",
+          "Mediação e Arbitragem"
+        ]
+      },
+      {
+        "courseName": "Educação Física",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Anatomia",
+          "Fisiologia",
+          "Ortopedia",
+          "Estatística",
+          "Administração",
+          "Economia"
+        ]
+      },
+      {
+        "courseName": "Agronomia",
+        "coursePeriod": "Integral e Noturno",
+        "courseTime": "5 anos",
+        "subjects": []
+      },
+      {
+        "courseName": "Engenharia da Computação",
+        "coursePeriod": "Integral",
+        "courseTime": "5 anos",
+        "subjects": [
+          "Algoritmos e Fundamentos da Programação",
+          "Introdução aos Sistemas Digitais",
+          "Arquitetura e Organização de Computadores",
+          "Cálculo Diferencial e Integral",
+          "Ética, Cidadania e Sociedade",
+          "Geometria Analítica e Álgebra Linear",
+          "Programação Orientada a Objetos",
+          "Introdução à Neurociência Computacional",
+          "Introdução à Programação de Jogos Digitais",
+          "Tópicos Avançados em Desenvolvimento de Sistemas",
+          "Tópicos Avançados em Programação para Internet"
+        ]
+      },
+      {
+        "courseName": "Pedagogia",
+        "coursePeriod": "Matutino, Vespertino e Noturno",
+        "courseTime": "4 anos",
+        "subjects": []
+      },
+      {
+        "courseName": "Engenharia Elétrica",
+        "coursePeriod": "Noturno",
+        "courseTime": "5 anos",
+        "subjects": [
+          "Cálculo Diferencial e Integral",
+          "Fundamentos de Programação",
+          "Introdução à Engenharia Elétrica",
+          "Álgebra Linear",
+          "Física Geral",
+          "Física Experimental",
+          "Desenho Técnico",
+          "Circuitos Digitais",
+          "Mecânica e Resistência dos Materiais",
+          "Estatística",
+          "Circuitos Elétricos",
+          "Cálculo Numérico"
+        ]
+      },
+      {
+        "courseName": "Química",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Análise Instrumental",
+          "Desenho Técnico",
+          "Ergonomia e Segurança do Trabalho",
+          "Estatística para a Saúde",
+          "Física Geral e Experimental",
+          "Físico-química",
+          "Gestão Ambiental e Responsabilidade Social",
+          "Gestão de Resíduos",
+          "Laboratório de Bioquímica",
+          "Laboratório de Físico-química",
+          "Laboratório de Química Analítica",
+          "Laboratório de Química Inorgânica",
+          "Mineralogia",
+          "Operações Unitárias",
+          "Probabilidade e Estatística",
+          "Processos Químicos Industriais",
+          "Química Orgânica",
+          "Tecnologia de Alimentos"
+        ]
+      },
+      {
+        "courseName": "Tecnologia em Agronegócio",
+        "coursePeriod": "Noturno",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Ciências Agrárias"
+        ]
+      },
+      {
+        "courseName": "Sistemas de Informação",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Programação Estruturada",
+          "Programação Orientada a Objetos I",
+          "Tópicos Avançados em Programação",
+          "Multimídia e Computação Gráfica",
+          "Sistemas Operacionais II",
+          "Auditoria e Segurança de Sistemas",
+          "Banco de Dados II",
+          "Programação Orientada a Objetos II",
+          "Trabalho de Conclusão de Curso I"
+        ]
+      },
+      {
+        "courseName": "Tecnologia em Gestão Ambiental",
+        "coursePeriod": "Noturno",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Análise de Impactos Ambientais",
+          "Avaliação do Impacto Ambiental e Licenciamento",
+          "Biossegurança",
+          "Ciências do Ambiente",
+          "Direito Ambiental",
+          "Gerenciamento de Projetos",
+          "Gerenciamento de Resíduos Sólidos",
+          "Gerenciamento de Riscos Ambientais",
+          "Gestão Ambiental e Desenvolvimento Sustentável",
+          "Gestão de Recursos Hídricos",
+          "Química Ambiental",
+          "Recuperação de Áreas Degradadas"
+        ]
+      },
+      {
+        "courseName": "Tecnologia em Produção Sucroalcooleira",
+        "coursePeriod": "Noturno",
+        "courseTime": "3 anos",
+        "subjects": []
+      }
+    ]
+  },
+  {
+    "institutionName": "IFTM - Instituto Federal do Triângulo Mineiro (Campus Ituiutaba)",
+    "conciseInstitutionName": "IFTM-ITBA",
+    "institutionImageURL": "doc\\backgrounds\\5.jpeg",
+    "backgroundImage": "",
+    "verified": true,
+    "routeMaps": [
+      {
+        "routeName": "route-1",
+        "iframeUrl": "/doc/maps/rota1.html"
+      },
+      {
+        "routeName": "route-2",
+        "iframeUrl": "/doc/maps/rota2.html"
+      },
+      {
+        "routeName": "institutionLocation",
+        "iframeUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.8465759389935!2d-49.46328772479674!3d-18.98130588220586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a2311f7d64f16b%3A0x661d6a5bbfcd5087!2sIFTM%20Campus%20Ituiutaba!5e0!3m2!1spt-BR!2sbr!4v1752100000000!5m2!1spt-BR!2sbr"
+      }
+    ],
+    "ingressModes": [
+      {
+        "mode": "Vestibular",
+        "text": "Ingresso via vestibular próprio do IFTM para cursos técnicos e superiores."
+      },
+      {
+        "mode": "ENEM",
+        "text": "Para cursos superiores, ingresso pelo ENEM via SISU."
+      }
+    ],
+    "courses": [
+      {
+        "courseName": "Técnico em Administração",
+        "coursePeriod": "Noturno",
+        "courseTime": "2 anos",
+        "subjects": [
+          "Administração de Materiais e Patrimônio",
+          "Gestão de Pessoas",
+          "Informática Aplicada",
+          "Introdução à Administração",
+          "Marketing",
+          "Matemática Aplicada",
+          "Noções de Direito Trabalhista e Constitucional",
+          "Português Instrumental",
+          "Administração Financeira e Orçamentária",
+          "Empreendedorismo",
+          "Ética, Cidadania e Sociedade",
+          "Gestão Ambiental",
+          "Gestão de Vendas",
+          "Gestão Pública",
+          "Noções de Direito Empresarial e do Consumidor"
+        ]
+      },
+      {
+        "courseName": "Técnico em Eletrotécnica (Concomitante)",
+        "coursePeriod": "Vespertino",
+        "courseTime": "2 anos",
+        "subjects": [
+          "Desenho Técnico Assistido por Computador",
+          "Fundamentos da Eletrotécnica",
+          "Instalações Elétricas Prediais I",
+          "Instrumentos e Medidas Elétricas",
+          "Redação Técnica",
+          "Solar Fotovoltaica I",
+          "Comando e Proteção",
+          "Fundamentos de Eletrônica Digital",
+          "Fundamentos de Instrumentação e Controle",
+          "Inglês Instrumental",
+          "Projetos Assistidos por Computador",
+          "Projetos de Instalações Elétricas Prediais e Práticas de Instalações"
+        ]
+      },
+      {
+        "courseName": "Técnico em Agricultura (Integrado)",
+        "coursePeriod": "Integral",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Agricultura Geral, Meio Ambiente e Recursos Naturais",
+          "Biologia",
+          "Fitopatologia Agrícola e Plantas Daninhas",
+          "Geografia Aplicada à Agricultura",
+          "Culturas Perenes, Semiperenes e Silvicultura",
+          "Desenho Técnico, Topografia e Construções Rurais",
+          "Matemática",
+          "Meteorologia, Climatologia, Irrigação e Drenagem",
+          "Química",
+          "Cooperativismo, Extensão, Gestão e Empreendedorismo Rural",
+          "Mecanização Agrícola e Tecnologia de Aplicação de Defensivos",
+          "Olericultura e Cultivo Protegido"
+        ]
+      },
+      {
+        "courseName": "Técnico em Agroindústria (Integrado)",
+        "coursePeriod": "Integral",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Higiene e Controle de Alimentos",
+          "Microbiologia de Alimentos",
+          "Análise de Alimentos",
+          "Análise Sensorial",
+          "Tecnologia de Carnes",
+          "Tecnologia de Vegetais"
+        ]
+      },
+      {
+        "courseName": "Técnico em Eletrotécnica (Integrado)",
+        "coursePeriod": "Integral",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Biologia",
+          "Educação Física",
+          "Filosofia",
+          "Física",
+          "Fundamentos de Eletrotécnica",
+          "Geografia",
+          "Introdução à Lógica e Programação",
+          "Língua Portuguesa",
+          "Matemática",
+          "Projetos de Instalações Elétricas Prediais",
+          "Química",
+          "Sociologia",
+          "Acionamentos Elétricos",
+          "Artes",
+          "Automação Industrial I",
+          "Fundamentos de Eletrônica",
+          "História",
+          "Projetos de Instalações Elétricas Prediais Assistido por Computador",
+          "Sistema Elétrico de Potência",
+          "Automação Industrial II",
+          "Eficiência e Qualidade de Energia",
+          "Eletrônica Industrial",
+          "Empreendedorismo e Gestão",
+          "Higiene, Saúde e Segurança do Trabalho",
+          "Inglês",
+          "Projeto de Instalações Elétricas Social"
+        ]
+      },
+      {
+        "courseName": "Técnico em Informática (Integrado)",
+        "coursePeriod": "Integral",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Algoritmos e Estrutura de Dados",
+          "Arquitetura e Organização de Computadores",
+          "Arte",
+          "Biologia",
+          "Educação Física",
+          "Filosofia",
+          "Física",
+          "Fundamentos da Informática",
+          "Geografia",
+          "História",
+          "Introdução à Informática",
+          "Língua Portuguesa",
+          "Matemática",
+          "Noções de Eletroeletrônica",
+          "Química",
+          "Banco de Dados",
+          "Engenharia de Software",
+          "Laboratório de Hardware",
+          "Laboratório de Programação II",
+          "Redes de Computadores I",
+          "Empreendedorismo e Gestão",
+          "Laboratório de Programação III",
+          "Redes de Computadores II",
+          "Sociologia"
+        ]
+      },
+      {
+        "courseName": "Técnico em Química (Integrado)",
+        "coursePeriod": "Integral",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Arte",
+          "Biologia",
+          "Educação Física",
+          "Empreendedorismo e Gestão",
+          "Espanhol",
+          "Filosofia",
+          "Física",
+          "Geografia",
+          "História",
+          "Inglês",
+          "Introdução à Metodologia Científica",
+          "Introdução à Química",
+          "Língua Portuguesa",
+          "Matemática",
+          "Química Experimental",
+          "Química Inorgânica",
+          "Segurança do Trabalho",
+          "Sociologia",
+          "Bioquímica",
+          "Gerenciamento e Tratamento de Resíduos Químicos",
+          "Métodos Instrumentais de Análise",
+          "Processos Químicos Industriais",
+          "Química Ambiental e Tratamento de Água",
+          "Química Orgânica"
+        ]
+      },
+      {
+        "courseName": "Técnico em Informática (Subsequente)",
+        "coursePeriod": "Noturno",
+        "courseTime": "2 anos",
+        "subjects": []
+      },
+      {
+        "courseName": "Administração",
+        "coursePeriod": "Diurno", 
+        "courseTime": "4 anos",
+        "subjects": [
+          "Comunicação e Expressão",
+          "Filosofia e Ética",
+          "Introdução à Administração",
+          "Matemática para Administradores",
+          "Metodologia Científica Aplicada à Administração",
+          "Microeconomia para Administradores",
+          "Sociologia e Modernidade",
+          "Teoria das Organizações",
+          "Informática para Administradores",
+          "Introdução ao Direito Brasileiro",
+          "Macroeconomia para Administradores",
+          "Psicologia Organizacional",
+          "Teoria Geral da Administração I",
+          "Teoria Geral da Administração II",
+          "Administração Mercadológica I",
+          "Administração Pública",
+          "Comportamento Organizacional",
+          "Contabilidade Geral para Administradores",
+          "Administração da Produção",
+          "Administração Mercadológica II",
+          "Custos para Decisão, Controle e Formação de Preço",
+          "Economia Brasileira Contemporânea",
+          "Estatística para Administradores I",
+          "Matemática Financeira",
+          "Administração Financeira I",
+          "Estatística para Administradores II",
+          "Gestão de Talentos",
+          "Negociação e Gestão de Conflitos",
+          "Organização, Sistemas e Métodos",
+          "Sistemas de Informações Gerenciais",
+          "Administração Estratégica",
+          "Administração Financeira II",
+          "Gestão de Micro e Pequenas Empresas",
+          "Gestão de Projetos",
+          "Legislação Tributária",
+          "Logística e Cadeia de Suprimento",
+          "Comércio e Negócios Internacionais",
+          "Jogos Empresariais",
+          "Legislação Trabalhista",
+          "Marketing na Era Digital",
+          "Optativas diversas",
+          "Empreendedorismo",
+          "Gestão Financeira e Mercadológica do Agronegócio",
+          "Mercado Financeiro e de Capitais",
+          "Orçamento Empresarial",
+          "Atividades Complementares",
+          "Estágio Curricular ou TCC",
+          "Outras Atividades Complementares (Libras, Sustentabilidade, etc.)"
+        ]
+      },
+      {
+        "courseName": "Tecnologia em Análise e Desenvolvimento de Sistemas",
+        "coursePeriod": "Noturno",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Algoritmos e Lógica de Programação",
+          "Estruturas de Dados",
+          "Programação Orientada a Objetos",
+          "Banco de Dados",
+          "Sistemas Operacionais",
+          "Engenharia de Software",
+          "Desenvolvimento Web",
+          "Desenvolvimento para Dispositivos Móveis",
+          "Tópicos em Programação",
+          "Redes de Computadores",
+          "Trabalho de Conclusão de Curso",
+          "Estágio Supervisionado"
+        ]
+      },
+      {
+        "courseName": "Ciência da Computação",
+        "coursePeriod": "Integral",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Cálculo I, II e III",
+          "Geometria Analítica e Álgebra Linear",
+          "Física Geral",
+          "Fundamentos de Programação",
+          "Estruturas de Dados",
+          "Algoritmos",
+          "Sistemas Operacionais",
+          "Banco de Dados",
+          "Programação para Internet",
+          "Computação Gráfica",
+          "Redes de Computadores",
+          "Sistemas Operacionais",
+          "Projeto de Sistemas",
+          "Estágio Supervisionado",
+          "TCC"
+        ]
+      },
+      {
+        "courseName": "Tecnologia em Automação Industrial",
+        "coursePeriod": "Noturno",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Sistemas de Controle",
+          "Redes Industriais"
+        ]
+      },
+      {
+        "courseName": "Tecnologia em Processos Químicos",
+        "coursePeriod": "Noturno",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Processos Químicos Industriais",
+          "Química III"
+        ]
+      },
+      {
+        "courseName": "Tecnologia em Alimentos",
+        "coursePeriod": "Noturno",
+        "courseTime": "3 anos",
+        "subjects": [
+          "Alimentos e Sociedade",
+          "Citologia",
+          "Desenho Técnico",
+          "Física Aplicada",
+          "Fundamentos de Cálculo",
+          "Informática",
+          "Metodologia Científica",
+          "Pós-colheita de Frutas e Hortaliças",
+          "Química Geral",
+          "Bioquímica Geral",
+          "Estatística Básica",
+          "Gestão Ambiental",
+          "Microbiologia de Alimentos I",
+          "Química Analítica",
+          "Química Orgânica",
+          "Segurança do Trabalho",
+          "Toxicologia de Alimentos",
+          "Cálculo de Processos",
+          "Estatística Experimental",
+          "Físico‑Química",
+          "Higiene Industrial",
+          "Microbiologia de Alimentos II",
+          "Química de Alimentos",
+          "Análise de Alimentos",
+          "Bioquímica de Alimentos",
+          "Biotecnologia de Alimentos",
+          "Controle de Qualidade em Alimentos",
+          "Economia",
+          "Ética e Legislação Profissional",
+          "Inovação e Empreendedorismo",
+          "Princípios de Conservação de Alimentos",
+          "Administração",
+          "Análise Sensorial",
+          "Embalagem de Alimentos",
+          "Instalações Agroindustriais",
+          "Nutrição e Dietética",
+          "Tecnologia de Carnes e Derivados",
+          "Tecnologia de Frutas e Hortaliças",
+          "Tecnologia de Leite e Derivados",
+          "Desenvolvimento de Novos Produtos",
+          "Estágio",
+          "Gestão da Qualidade",
+          "Introdução às Operações Unitárias",
+          "Tecnologia de Açúcar e Álcool",
+          "Tecnologia de Amidos, Panificação e Massas",
+          "Tecnologia de Bebidas",
+          "Tecnologia de Óleos e Gorduras",
+          "Tecnologia de Ovos e Mel",
+          "Tratamento de Águas e Efluentes"
+        ]
+      }
+    ]
+  },
+  {
+    "institutionName": "UFU - Universidade Federal de Uberlândia (Campus Pontal)",
+    "conciseInstitutionName": "UFU-ITBA",
+    "institutionImageURL": "https://comunica.ufu.br/sites/comunica.ufu.br/files/marca_ufu_vertical_cor_0.png",
+    "backgroundImage": "",
+    "verified": true,
+    "routeMaps": [
+      {
+        "routeName": "route-1",
+        "iframeUrl": ""
+      },
+      {
+        "routeName": "route-2",
+        "iframeUrl": ""
+      },
+      {
+        "routeName": "institutionLocation",
+        "iframeUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.058783669204!2d-49.4528124247969!3d-18.97280868221095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a231f8f8ef2f73%3A0x396f096b00522fc7!2sUFU%20Campus%20Pontal!5e0!3m2!1spt-BR!2sbr!4v1752100500000!5m2!1spt-BR!2sbr"
+      }
+    ],
+    "ingressModes": [
+      {
+        "mode": "ENEM",
+        "text": "Ingresso exclusivamente pelo ENEM via SISU."
+      },
+      {
+        "mode": "Vestibular",
+        "text": "Ingresso direto via vestibular próprio da UFU."
+      }
+    ],
+    "courses": [
+      {
+        "courseName": "Administração",
+        "coursePeriod": "Matutino e Noturno",
+        "courseTime": "5 anos",
+        "subjects": [
+          "Teorias da Administração",
+          "Matemática para Negócios",
+          "Contabilidade Geral",
+          "Economia e Mercados",
+          "Gestão de Pessoas",
+          "Marketing",
+          "Finanças Corporativas",
+          "Administração da Produção e Operações",
+          "Planejamento Estratégico",
+          "Logística Empresarial",
+          "Direito Empresarial",
+          "Empreendedorismo e Inovação"
+        ]
+      },
+      {
+        "courseName": "Ciências Biológicas",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Biologia Celular",
+          "Química para Biologia",
+          "Morfologia Vegetal",
+          "Genética e Evolução",
+          "Bioquímica",
+          "Física para Biologia",
+          "Zoologia de Invertebrados",
+          "Fisiologia Vegetal",
+          "Ecologia Geral",
+          "Microbiologia",
+          "Imunologia",
+          "Biologia e Cultura"
+        ]
+      },
+      {
+        "courseName": "Ciências Contábeis",
+        "coursePeriod": "Noturno",
+        "courseTime": "5 anos",
+        "subjects": [
+          "Contabilidade Introdutória",
+          "Matemática Financeira",
+          "Direito e Legislação",
+          "Economia",
+          "Contabilidade de Custos",
+          "Contabilidade Tributária",
+          "Auditoria Contábil",
+          "Perícia Contábil",
+          "Contabilidade Avançada",
+          "Análise das Demonstrações Contábeis",
+          "Mercado Financeiro e de Capitais",
+          "Planejamento Tributário"
+        ]
+      },
+      {
+        "courseName": "Engenharia de Produção",
+        "coursePeriod": "Integral",
+        "courseTime": "5 anos",
+        "subjects": [
+          "Cálculo Diferencial e Integral",
+          "Física Geral",
+          "Química Geral e Tecnológica",
+          "Desenho Técnico",
+          "Ciência e Tecnologia dos Materiais",
+          "Gestão da Qualidade",
+          "Pesquisa Operacional",
+          "Engenharia Econômica",
+          "Planejamento e Controle da Produção",
+          "Logística e Cadeia de Suprimentos",
+          "Engenharia do Produto",
+          "Automação Industrial"
+        ]
+      },
+      {
+        "courseName": "Física (Licenciatura)",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Física Básica I, II, III e IV",
+          "Cálculo I, II e III",
+          "Álgebra Linear",
+          "Fundamentos de Matemática Elementar",
+          "História da Matemática",
+          "Probabilidade e Estatística",
+          "Didática",
+          "Educação Matemática",
+          "Física Geral",
+          "Lógica",
+          "Teoria dos Números",
+          "Análise na Reta"
+        ]
+      },
+      {
+        "courseName": "Geografia",
+        "coursePeriod": "Matutino e Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Teoria e Método da Geografia",
+          "Cartografia",
+          "Geomorfologia",
+          "Climatologia",
+          "Geografia Urbana",
+          "Geografia Agrária",
+          "Geografia Política",
+          "Geografia da População",
+          "Sensoriamento Remoto",
+          "Planejamento Ambiental",
+          "Geografia do Brasil",
+          "Hidrologia e Recursos Hídricos"
+        ]
+      },
+      {
+        "courseName": "História",
+        "coursePeriod": "Matutino e Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Introdução aos Estudos Históricos",
+          "História Antiga",
+          "História Medieval",
+          "História Moderna",
+          "História Contemporânea",
+          "História da América",
+          "História do Brasil Colonial, Império e República",
+          "Teoria da História",
+          "Patrimônio, Memória e História",
+          "Metodologia do Ensino de História",
+          "História da África",
+          "Estágio Curricular Supervisionado"
+        ]
+      },
+      {
+        "courseName": "Matemática (Licenciatura)",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Cálculo Diferencial e Integral I, II e III",
+          "Geometria Euclidiana Plana e Espacial",
+          "Álgebra Linear",
+          "Fundamentos de Matemática Elementar",
+          "História da Matemática",
+          "Probabilidade e Estatística",
+          "Didática",
+          "Educação Matemática",
+          "Física Geral",
+          "Lógica",
+          "Teoria dos Números",
+          "Análise na Reta"
+        ]
+      },
+      {
+        "courseName": "Pedagogia",
+        "coursePeriod": "Matutino e Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Filosofia da Educação",
+          "Sociologia da Educação",
+          "Psicologia da Educação",
+          "Didática",
+          "Alfabetização e Letramento",
+          "Fundamentos da Educação Infantil",
+          "Educação de Jovens e Adultos",
+          "Políticas Públicas e Gestão da Educação",
+          "Educação Inclusiva",
+          "Currículo e Educação",
+          "Jogos, Brinquedos e Brincadeiras",
+          "Libras"
+        ]
+      },
+      {
+        "courseName": "Química (Licenciatura)",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Química Geral",
+          "Química Analítica Qualitativa e Quantitativa",
+          "Química Orgânica I e II",
+          "Físico-Química",
+          "Bioquímica",
+          "Química Inorgânica",
+          "Cálculo I",
+          "Física Geral",
+          "Instrumentação para o Ensino de Química",
+          "Metodologia do Ensino de Química",
+          "História da Química",
+          "Estágio Supervisionado"
+        ]
+      },
+      {
+        "courseName": "Sistemas de Informação",
+        "coursePeriod": "Noturno",
+        "courseTime": "4 anos",
+        "subjects": [
+          "Algoritmos e Estrutura de Dados",
+          "Programação Orientada a Objetos",
+          "Sistemas Operacionais",
+          "Redes de Computadores",
+          "Engenharia de Software",
+          "Banco de Dados",
+          "Interação Humano-Computador",
+          "Inteligência Artificial",
+          "Segurança e Auditoria de Sistemas",
+          "Sistemas Distribuídos",
+          "Gerência de Projetos",
+          "Computação Gráfica"
+        ]
+      }
+    ]
+  }
+]

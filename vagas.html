@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>EstudAqui - Home</title>
+    <link rel="stylesheet" href="institutionInfoStyle.css">
+    <title>EstudAqui - Vagas</title>
 
-    <script src="https://kit.fontawesome.com/4e15650a98.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="iconeSite.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="\doc\icons\logo.svg" type="image/x-icon">
 
 </head>
 <body>
-
     <div id="background-rotator">
         <div class="bg-layer"></div>
         <div class="bg-layer"></div>
@@ -22,63 +21,163 @@
            
             <a href="index.html" class="logo"></a>
             <div class="burger-menu">
-                <i class="fa-solid fa-bars"></i>
+                <img src="doc\icons\burger-bar.png" alt="">
             </div>
             <nav class="header-nav">
                 <a class="header-nav-option" href="vagas.html">Vagas</a>
                 <a class="header-nav-option" href="cad-user.html">Cadastro</a>
                 <a class="header-nav-option" href="contato.html">Contato</a>
                 <a class="header-nav-option" href="sobre.html">Sobre</a>
+                <a id="login-button" href="login.html">Login</a>
             </nav>
-            <a id="login-button" href="login.html">Login</a>
         </div>
         <div class="mobile-menu">
             <a href="vagas.html" class="mobile-menu-button">Vagas</a>
             <a href="login.html" class="mobile-menu-button">Login</a>
-            <a href="" class="mobile-menu-button">Cadastro</a>
+            <a href="cad-user.html" class="mobile-menu-button">Cadastro</a>
             <a href="contato.html" class="mobile-menu-button">Contato</a>
             <a href="sobre.html" class="mobile-menu-button">Sobre</a>
         </div>
     </header>
 
+
     <main>
 
-    <div class="containervagas">
-
-        <div class="instituições">
-            <h2 class="h2vagas">Vagas</h2>
-            <div class="institution-card-link">
-                <div class="institution-card card-iftm">
-                    <div class="institution-card-image" style="background-image: url(doc/backgrounds/5.jpeg);"></div>
-                    <div class="institution-card-overlay"></div>
-                    <div class="institution-card-text">IFTM</div>
+        <div class="containervagas">
+            
+            <a class="add-institution-link" href="cad-instituicao.html">
+                <div class="add-institution">
+                    +  Cadastrar Instituição
                 </div>
-            </div>
+            </a>
 
-            <div class="institution-card-link" style="display: none;">
-                <div class="institution-card card-uemg">
-                    <div class="institution-card-image" style="background-image: url(doc/backgrounds/1.jpeg);"></div>
-                    <div class="institution-card-overlay"></div>
-                    <div class="institution-card-text">UEMG</div>
-                </div>
-            </div>
+            <h2 class="h2vagas">Instituições:</h2>
 
-            <div class="institution-card-link" style="display: none;">
-                <div class="institution-card card-ufu">
-                    <div class="institution-card-image" style="background-image: url(doc/backgrounds/1.jpeg);"></div>
-                    <div class="institution-card-overlay"></div>
-                    <div class="institution-card-text">UFU</div>
-                </div>
+            <div class="institutions">
+<iframe src="" frameborder="0"></iframe>
             </div>
         </div>
-    </div>
-
-
 
     </main>
+
+<!-- ------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------ -->
+
+    <div class="institution-info-container">
+
+        <div class="institution-info-header">
+
+            <div class="institution-menu-button zindex-icon">
+                <div class="institution-menu-button-icon">
+                    <p>&gt;</p>
+                </div>
+            </div>
+            
+            <div class="header-exit-button zindex-icon">
+                &times;
+            </div>
+            
+        </div>
+        
+        <div class="institution-info-pre-main">
+            
+            <div class="header-institution-name">
+                <h3>IFTM CAMPUS ITUIUTABA</h3>
+            </div>
+
+            <div class="pre-main-title">
+                <h2>Informações Gerais</h2>
+            </div>
+
+            <div class="institution-pre-main-menu">
+                <div class="pre-main-menu-option" id="pre-main-option-1">
+                    <p>Rotas de ônibus</p>
+                </div>
+                <div class="pre-main-menu-option" id="pre-main-option-2">
+                    <p></p>Forma de Ingresso</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="institution-info-main">
+
+            <div class="institution-info-main-container" id="">
+                <div class="institution-main-container-header">
+
+                    <p>Selecione um mapa:</p>
+
+                    
+                </div>
+                
+                <div class="institution-main-container-main">
+                    
+                    <div class="imch-checkbox">
+    
+                        <div class="imch-checkbox-div">
+                            <input type="checkbox" name="morning-route" id="institution-location" class=""><br>
+                            <label for="institution-location">Localização</label>
+                        </div>
+    
+                        <div class="imch-checkbox-div">
+                            <input type="checkbox" name="morning-route" id="institution-route-1" class=""><br> 
+                            <label for="institution-route-1">Rota 1</label>
+                        </div>
+
+                        <div class="imch-checkbox-div">
+                            <input type="checkbox" name="morning-route" id="institution-route-2" class=""><br>
+                            <label for="institution-route-2">Rota 2</label>
+                        </div>
+                        
+                    </div>
+    
+                    <div id="institution-main-container-header-map">
+    
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="institution-info-menu">
+            
+            <div class="institution-info-menu-container">
+
+                <div class="menu-container-option" id="menu-button-space">
+
+                    <div class="menu-container-option-symbol"></div>
+                    <div class="menu-container-option-name"></div>
+                    
+                </div>
+                
+                <div class="menu-container-option" id="general-options">
+
+                    <div class="menu-container-option-symbol">
+                        &bull;
+                    </div>
+                    <div class="menu-container-option-name">
+                        <p>Informações Gerais</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="institution-menu-container-options">
+
+                   
+                </div> 
+
+            </div>
+
+        </div>
+        
+    </div>
     
 
 <script src="script.js"></script>
+<script src="zindexScreenScript.js"></script>
+
 </body>
 </html>
 

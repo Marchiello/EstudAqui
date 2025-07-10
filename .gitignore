@@ -1,0 +1,4 @@
+meu_backend/node_modules
+*meu_backend/node_modules
+.env
+*/.env

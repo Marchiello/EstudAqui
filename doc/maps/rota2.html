@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Rota 2 – IFTM</title>
+  <link rel="shortcut icon" href="maps.svg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet & plugin CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  <style>
+    :root { --primary-color:#0078d4; --panel-bg:#ffffffcc; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{height:100%;font-family:Arial,Helvetica,sans-serif;}
+
+    @keyframes slideDown{from{transform:translateY(-100%);}to{transform:translateY(0);} }
+    @keyframes dash{from{stroke-dashoffset:1000;}to{stroke-dashoffset:0;}}
+    @keyframes bounce{20%{transform:translateY(-8px);}40%{transform:translateY(0);}60%{transform:translateY(-4px);}80%,100%{transform:translateY(0);} }
+
+    h1{
+      position:fixed;inset:0 0 auto 0;height:3.5rem;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--primary-color);color:#fff;
+      font-size:clamp(1.2rem,3vw,2rem);
+      z-index:1100;user-select:none;
+      box-shadow:0 2px 6px rgba(0,0,0,.3);
+      animation:slideDown .6s ease-out;
+    }
+
+    #map{height:calc(100vh - 3.5rem);margin-top:3.5rem;width:100%;}
+
+    #painel{
+      position:fixed;top:4rem;left: 5rem !important;;
+      width:9rem;max-width:90vw;
+      background:var(--panel-bg);border-radius:.5rem;
+      box-shadow:0 2px 12px rgba(0,0,0,.2);backdrop-filter:blur(6px);
+      overflow:hidden;transition:max-height .4s ease;
+      font-size: 4vw;
+      z-index:1200;max-height:3rem;
+    }
+    #painel.aberto{max-height:60vh;}
+    #painel h2{
+      display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+      background:var(--primary-color);color:#fff;font-size:4vw;
+      padding:.75rem 1rem;cursor:pointer;user-select:none;
+    }
+    #painel h2 span{transition:transform .3s ease;}
+    #painel:not(.aberto) h2 span{transform:rotate(180deg);}
+
+    #conteudo-instrucoes{padding:1rem 1.25rem;max-height:calc(60vh - 3rem);overflow-y:auto;}
+    #instrucoes{list-style:none;}
+    #instrucoes li{margin-bottom:.5rem;line-height:1.4;cursor:pointer;transition:color .2s;}
+    #instrucoes li:hover{color:var(--primary-color);} 
+    #instrucoes li.final{font-weight:700;color:#c00;}
+    #instrucoes li.inicio{font-weight:700;color:var(--primary-color);}
+
+    .nav-btn{background:var(--primary-color);color:#fff;border:none;border-radius:4px;padding:2px 6px;font-size:.75rem;margin:2px 2px 0;cursor:pointer;transition:background .2s;}
+    .nav-btn:hover{background:#005fa3;}
+
+    .leaflet-routing-container{display:none!important;}
+    .highlight-route{stroke-dasharray:1000;animation:dash 1.5s linear forwards;}
+
+    @media(max-width:768px){
+      #painel{left:50%;right:auto;transform:translateX(-50%);}
+      #painel.aberto{transform:translateX(-50%);}
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Rota 2</h1>
+
+  <div id="painel">
+    <h2 id="toggle"><span>▼</span> Paradas da Rota</h2>
+    <div id="conteudo-instrucoes"><ol id="instrucoes"></ol></div>
+  </div>
+
+  <div id="map"></div>
+
+  <!-- Leaflet scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script>
+    const horaSaidaPadrao = '06:00';
+
+    /* ---- pontos ---- */
+    const nomesPontos = [
+      "Próximo a TV Vitoriosa Pepino Laterza (171)",
+      "Senador Elizeu Resende próximo 430",
+      "Acácio Alves Cintra 897",
+      "691 em frente à quadra do Nova Ituiutaba",
+      "Mozart Rezende 603",
+      "Lira Saraiva 95",
+      "Fausto Próspero 3806",
+      "Saul Ribeiro (SAE)",
+      "Praça Dom Pedro I – 211",
+      "Bar do Zé Bolacha 183",
+      "Mini‑mercado Independência 706 – Rua São Paulo",
+      "Álvares Maciel 850 – em frente Mercearia Ipê",
+      "Uruguai 2308",
+      "Álvares Maciel 503",
+      "PC‑1 36",
+      "C‑6 432 – abrigo instalado",
+      "C‑17 87",
+      "Mário Junqueira Yunes 824",
+      "Tupis 52",
+      "Farmácia Cruzeiro – José Gouveia Franco",
+      "Belarmino de Freitas c/ Alaor Franco",
+      "Ataíde Quirino Ribeiro 648",
+      "Arlindo Maximiliano de Almeida – entrada Drummond",
+      "Geraldo Moisés da Silva – UEMG",
+      "Francisco Salviano Pinto 668",
+      "Minas Gerais 228",
+      "Minas Gerais 494",
+      "Minas Gerais 990",
+      "Minas Gerais 1400",
+      "Dezoito c/ 31 – Escola Polivalente",
+      "Minas Gerais c/ 18 e 16 – Escola Arthur Junqueira de Almeida",
+      "Minas Gerais 2604",
+      "31 c/ 8 e 6 – 2088",
+      "51 c/ 4 – 542",
+      "Minas Gerais c/ Belarmino Vilela Junqueira",
+      "Belarmino Vilela Junqueira c/ Castro Alves",
+      "IFTM"
+    ];
+
+    /* coordenadas da rota */
+    const waypoints = [
+        L.latLng(-18.988551437089644, -49.45866660511577), 
+        L.latLng(-19.016057792133676, -49.45174204383971),
+        L.latLng(-19.01589848542203, -49.45100248977152),  
+        L.latLng(-19.014617183631565, -49.45070740344297),  
+        L.latLng(-19.011671397446495, -49.44962068810088),  
+        L.latLng(-19.010871696569154, -49.44923034577205),  
+        L.latLng(-18.998261960704273, -49.45514040344319),  
+        L.latLng(-18.995178220276404, -49.4546146956802),  
+        L.latLng(-18.99037163942513, -49.45293804748666),  
+        L.latLng(-18.973561481637475, -49.45143434232896),  
+        L.latLng(-18.99134897516018, -49.449889516936814),  
+        L.latLng(-18.993389864474693, -49.45126576111433),  
+        L.latLng(-18.99741225965272, -49.443727416936596),  
+        L.latLng(-18.99073695125019, -49.43807585957301),  
+        L.latLng(-18.987827944058637, -49.43683258465791),  
+        L.latLng(-18.985709652781566, -49.4373056187855),  
+        L.latLng(-18.985663507539815, -49.43371948995011),  
+        L.latLng(-18.98558377038966, -49.42805354232895),  
+        L.latLng(-18.98071914542643, -49.43414253227907),  
+        L.latLng(-18.98030625406607, -49.436822559265785),  
+        L.latLng(-18.97565894592519, -49.43663100159488),  
+        L.latLng(-18.971599779248926, -49.44257397301312),  
+        L.latLng(-18.965261207332425, -49.44288694577281),  
+        L.latLng(-18.971284063071867, -49.44852504417759),  
+        L.latLng(-18.97189058392514, -49.451463716937106),  
+        L.latLng(-18.97811581502481, -49.448400818785736),  
+        L.latLng(-18.979653135609073, -49.450229032279175),  
+        L.latLng(-18.98244317465747, -49.45406427460793),  
+        L.latLng(-18.9846704416657, -49.456751701594726),  
+        L.latLng(-18.98304939900098, -49.46302496367847),  
+        L.latLng(-18.988995521370196, -49.4620674110444),  
+        L.latLng(-18.99174258598119, -49.465608659265726),  
+        L.latLng(-18.98424725676182, -49.46929272883552),  
+        L.latLng(-18.992678275095532, -49.4690368223282),  
+        L.latLng(-19.005836743117083, -49.483222775701606),  
+        L.latLng(-19.009914495908554, -49.48259886035946), 
+        L.latLng(-19.01866339808958, -49.4766921954563)
+    ];
+
+    const painel = document.getElementById('painel');
+    document.getElementById('toggle').onclick = () => painel.classList.toggle('aberto');
+
+    const map = L.map('map', { zoomControl: false }).setView(waypoints[0], 14);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
+
+    const makeIcon = url => L.icon({ iconUrl: url, shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] });
+    const iconPadrao  = makeIcon('https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png');
+    const iconFinal   = makeIcon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png');
+    const iconUser    = makeIcon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png');
+    const iconInicio  = makeIcon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png');
+
+    const wpMarkers = [];
+    let routeCoords = [], wpCoordIdx = [], highlightLine = null;
+
+    function horaParaDate(hm){
+      const [d,m] = hm.split(':').map(Number);
+      const dt = new Date(); dt.setHours(d,m,0,0); return dt;
+    }
+
+    function bounceMarker(mk){
+      if(!mk._icon) return;
+      mk._icon.classList.add('bounce');
+      setTimeout(()=>mk._icon.classList.remove('bounce'),700);
+    }
+
+    function highlightSegment(idx){
+      if(highlightLine){ map.removeLayer(highlightLine); highlightLine = null; }
+      if(idx<0 || idx>=wpCoordIdx.length-1) return;
+      const seg = routeCoords.slice(wpCoordIdx[idx], wpCoordIdx[idx+1]+1);
+      highlightLine = L.polyline(seg,{color:'red',weight:6,opacity:.9,className:'highlight-route'}).addTo(map);
+    }
+
+    function focusWaypoint(idx){
+      if(wpMarkers[idx]){
+        map.setView(wpMarkers[idx].getLatLng(),15,{animate:true});
+        wpMarkers[idx].openPopup();
+        highlightSegment(idx);
+        bounceMarker(wpMarkers[idx]);
+      }
+    }
+
+    const routing = L.Routing.control({
+      waypoints,
+      show:false,
+      draggableWaypoints:false,
+      addWaypoints:false,
+      router:L.Routing.osrmv1({serviceUrl:'https://router.project-osrm.org/route/v1'}),
+      lineOptions:{styles:[{color:'blue',weight:5,opacity:.7}]},
+      createMarker:(i,wp)=>{
+        let icon = iconPadrao;
+        if(i===0) icon = iconInicio;
+        else if(i===waypoints.length-1) icon = iconFinal;
+        const mk = L.marker(wp.latLng,{icon});
+        mk.idx = i; wpMarkers[i] = mk; return mk;
+      }
+    }).addTo(map);
+
+    routing.on('routesfound',e=>{
+      const lista = document.getElementById('instrucoes');
+      lista.innerHTML = '';
+
+      const rota = e.routes[0]; routeCoords = rota.coordinates; wpCoordIdx=[0];
+      rota.instructions.forEach(instr=>{
+        if(instr.type==='WaypointReached'||instr.type==='DestinationReached') wpCoordIdx.push(instr.index);
+      });
+
+      const horaSaida = horaParaDate(horaSaidaPadrao);
+      let acumulado = 0, idxWp = 1;
+
+      /* ponto inicial */
+      wpMarkers[0].bindPopup(`<strong>${nomesPontos[0]||'Ponto 1'}</strong><br>Partida: ${horaSaidaPadrao}<br><div class='popup-nav'><button class='nav-btn' data-dir='1'>próximo →</button></div>`);
+      const liInicio = document.createElement('li');
+      liInicio.textContent = `${nomesPontos[0]||'Ponto 1'} – partida às ${horaSaidaPadrao}`;
+      liInicio.dataset.idx=0;
+      liInicio.classList.add('inicio');
+      liInicio.onclick=()=>focusWaypoint(0);
+      lista.appendChild(liInicio);
+
+      /* demais pontos */
+      rota.instructions.forEach(instr=>{
+        acumulado+=instr.time;
+        const chegou = instr.type==='WaypointReached'||instr.type==='DestinationReached';
+        if(chegou && wpMarkers[idxWp]){
+          const chegada = new Date(horaSaida.getTime()+acumulado*1000);
+          const horaTxt = chegada.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+          const nome = nomesPontos[idxWp] || `Ponto ${idxWp+1}`;
+          let popup = `<strong>${nome}</strong><br>Chegada: ${horaTxt}<br><div class='popup-nav'>`;
+          if(idxWp>0) popup+=`<button class='nav-btn' data-dir='-1'>← anterior</button>`;
+          if(idxWp<wpMarkers.length-1) popup+=`<button class='nav-btn' data-dir='1'>próximo →</button>`;
+          popup+='</div>';
+          wpMarkers[idxWp].bindPopup(popup);
+
+          const li = document.createElement('li');
+          li.textContent = `${nome} – chegada às ${horaTxt}`;
+          li.dataset.idx = idxWp;
+          li.onclick = ()=>focusWaypoint(+li.dataset.idx);
+          if(idxWp===waypoints.length-1) li.classList.add('final');
+          lista.appendChild(li);
+          idxWp++;
+        }
+      });
+    });
+
+    map.on('popupopen',e=>{
+      const idx=e.popup._source.idx;
+      e.popup.getElement().querySelectorAll('.nav-btn').forEach(btn=>{
+        btn.onclick=()=>{
+          const next = idx+parseInt(btn.dataset.dir,10);
+          if(next>=0 && next<wpMarkers.length) focusWaypoint(next);
+        }
+      });
+      highlightSegment(idx);
+    });
+
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(pos=>{
+        L.marker([pos.coords.latitude,pos.coords.longitude],{icon:iconUser})
+          .addTo(map).bindPopup('Você está aqui');
+      });
+    }
+  </script>
+</body>
+</html>

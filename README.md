@@ -10,7 +10,7 @@ Copyright (C) 2025  Marcello Vinhais, Lucas Gabriel, Ryan Clayton.
 Este programa é software livre; você pode redistribuí-lo e/ou
 modificá-lo sob os termos da Licença Pública Geral GNU, conforme
 publicada pela Free Software Foundation; seja a versão 3 da Licença,
-ou (a seu critério) qualquer versão posterior.
+ou qualquer versão posterior.
 
 Este programa é distribuído na esperança de que seja útil,
 mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
@@ -29,7 +29,7 @@ junto com este programa. Se não, veja <https://www.gnu.org/licenses/>.
 
 ### Diagramas:
 
-#### Diagrana de Atividade:
+#### Diagrama de Atividade:
 
 ##### Consulta de vagas:
 

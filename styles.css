@@ -1,5 +1,5 @@
 :root{
-    --light-header-container-color: rgba(0, 0, 0, 0.726);
+    --light-header-container-color: rgba(0, 0, 0, 0.856);
     --light-font-color: white;
 }
 
@@ -9,7 +9,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
+    /* color: white; */
+}
+
+a{
+    color: green;
 }
 
 
@@ -28,19 +32,20 @@ header {
 }
 
 .header-content{
-    background-color: var(--light-header-container-color);
+    background-color: black;
     height: 25vw;
     padding: 2vw;
     display: flex;
     justify-content: space-between;
     margin-bottom: 8vw;
+    /* text-transform: uppercase; */
 }
 
 .logo{
     /* background-color: rgb(47, 0, 255); */
     width: 45vw;
     height: 20vw;
-    background-image: url('doc/imgs/logo-light.png');
+    background-image: url('doc\\imgs\\logo-light.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -57,10 +62,12 @@ header {
     justify-content: center;
     border-radius: 5px;
     transition: 0.3s;
+    /* background-color: #4CAF50; */
 }
 
-.burger-menu i{
-    font-size: 12vw;
+.burger-menu img{
+    width: 14vw;
+    filter: invert();
 }
 
 /* -------------------------------------- */
@@ -73,6 +80,7 @@ header {
     padding: 5vw;
     text-align: center;
     margin-top: 30vw;
+    color: white;
 }
 
 .container-header{
@@ -100,25 +108,41 @@ header {
 }
 
 .mobile-menu{
+    padding-top: 6vh;
     z-index: 999;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.911);
+    background-color: rgb(0, 0, 0);
     margin-top: -8vw;
     width: 100vw;
+    height: 100vh;
+    transform: translateX(-120%);
     border-top: 1px solid white;
-    display: none;
+    display: flex;
     flex-direction: column;
+    transform: translateX(-120%);
+    transition: transform 0.4s ease-in-out;
+    overflow: scroll;
+}
+
+.opened-menu{
+    transform: translateX(0)
 }
 
 .mobile-menu-button{
+    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-
-    border-bottom: 1px solid white;
-    height: 12vw;
+    margin: 3vw auto 3vw auto;
+    border: 6px solid rgb(211, 211, 211);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    height: 10vh;
+    width: 90vw;
+    /* text-transform: uppercase; */
+    font-weight: 900;
 }
 /* -------------- */
 
@@ -200,6 +224,7 @@ main {
     background-color: var(--light-header-container-color);
     width: 90vw;
     /* height: 140vw; */
+
     margin: auto;
     border-radius: 20px;
     padding: 5vw;
@@ -269,12 +294,12 @@ main {
 .containervagas {
     background-color:var(--light-header-container-color);
     width: 90vw;
-    height: fit-content;
     margin: auto;
     border-radius: 20px;
     padding: 5vw;
     text-align: center;
     margin-top: 30vw;
+    min-height: 80vh;
 }
 
 .h2vagas {
@@ -293,10 +318,16 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     height: 120px; 
+    transition: 0.5s;
+}
+
+.institution-card-overlay :hover{
+    background-color: white;
 }
 
 .institution-card-image {
     position: absolute;
+    background-color: rgb(19, 0, 63);
     top: 0;
     left: 0;
     width: 100%;
@@ -312,7 +343,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 70%); 
+    /* background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 70%);  */
     z-index: 2; 
     border-radius: 10px; 
 }
@@ -327,7 +358,7 @@ main {
 }
 
 .card-iftm .institution-card-overlay {
-    background: linear-gradient(to right, rgba(76, 175, 80, 0.7) 0%, rgba(76, 175, 80, 0.3) 30%, rgba(76, 175, 80, 0) 70%);
+    background: linear-gradient(to right, rgba(76, 175, 80, 0.7) 15%, rgba(76, 175, 80, 0.3) 30%, rgba(76, 175, 80, 0) 70%);
 }
 .card-uemg .institution-card-overlay {
     background: linear-gradient(to right, rgba(175, 76, 80, 0.7) 0%, rgba(175, 76, 80, 0.3) 30%, rgba(175, 76, 80, 0) 70%);
@@ -355,15 +386,42 @@ input, textarea{
     color: black;
 }
 
+.add-institution{
+    display: flex;
+    background-color: #4caf4f;
+    width: 45vw;
+    border-radius: 10px;
+    padding: 2.5vw;
+    height: 20vw;
+    /* margin: 4vw auto 4vw auto; */
+    color: white;
+    align-items: center;
+    font-size: 3.5vw;
+    transition: 0.5s;
+}
+
+.add-institution-link{
+    margin: 2vw auto;
+    display: flex;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.add-institution-link :hover{
+    background-color: #016901;
+}
+
+
     @media (min-width: 768px) {
 
-
         .header-content{
-            height: 10vw;
-
+            height: 6vw;
+            background-color: var(--light-header-container-color);
         }
-
+        
         header{
+            min-width: auto;
+            width: 100%;
             margin-top: 0px;
             position: relative;
         }
@@ -377,16 +435,16 @@ input, textarea{
             margin: auto;
             display: flex;
             gap: 7vw;
-            /* background-color: #4CAF50; */
             width: 50vw;
-            font-size: 4vw;
             justify-content: center;
             align-items: center;
             height: 6vw;
-            font-size: 2.2vw;
+            font-size: 1.4vw;
             transition: 0.5s;
+            margin-top: -2vw;
+            margin-left: 20vw;
         }
-        
+
         .header-nav a{
             text-decoration: none;
         }
@@ -396,12 +454,13 @@ input, textarea{
             text-decoration: none;
             color: green;
             font-weight: bold;
-
+            margin-top: 0px;
         }
 
         .logo{
-            width: 20vw;
-            height: 7vw;
+            width: 14vw;
+            margin-top: -0.5vw;
+            height: 4vw;
             background-size: cover;
             background-position: center center;
             /* background-color: #4CAF50; */
@@ -409,29 +468,31 @@ input, textarea{
 
         .container{
             margin-top: -5vw;
-            height: fit-content;
+            /* min-height: 60vh; */
             width: 60vw;
             border-radius: 50px;
             margin-bottom: 2vw;
             font-size: 1vw;
+            padding: 2vw;
         }
 
         .container-header{
             /* background-color: #4CAF50; */
-            font-size: 2vw;
+            font-size: 1vw;
             margin-bottom: 3vw;
 
         }
 
         .container-main{
-            font-size: 2vw;
+            font-size: 1.2vw;
         }
 
         .button{
-            margin-top: 5vw;
-            width: 40vw;
-            height: 10vw;
+            margin: 2vw auto 3vw auto;
+            width: 20vw;
+            height: 5vw;
             transition: 0.5s;
+            font-size: 2vw;
         }
 
         .button:hover{
@@ -444,6 +505,7 @@ input, textarea{
             padding: 5px;
             border-radius: 10px;
             text-align: center;
+            color: white;
         }
 
         .header-nav :hover{
@@ -479,17 +541,30 @@ input, textarea{
         }
 
         .login-credentials{
-            width: 40vw;
-            height: 6vw;
-            font-size: 2vw;
+            width: 20vw;
+            height: 3vw;
+            font-size: 1.2vw;
         }
 
         .container p{
-            font-size: 2vw;
+            font-size: 1.5vw;
         }
 
         .forget-password{
             margin-left: 20vw;
+        }
+
+        .add-institution{
+            display: flex;
+            align-items: center;
+            width: 20vw;
+            height: 10vw;
+            font-size: 2vw;
+        }
+        
+        .add-institution-link{
+            text-decoration: none;
+
         }
 
     }

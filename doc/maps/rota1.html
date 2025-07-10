@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Rota 1 – IFTM </title>
+  <link rel="shortcut icon" href="doc/imgs/maps.svg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet & plugin CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  <style>
+    :root { --primary-color:#0078d4; --panel-bg:#ffffffcc; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{height:100%;font-family:Arial,Helvetica,sans-serif;}
+
+    @keyframes slideDown{from{transform:translateY(-100%);}to{transform:translateY(0);} }
+    @keyframes dash{from{stroke-dashoffset:1000;}to{stroke-dashoffset:0;}}
+    @keyframes bounce{20%{transform:translateY(-8px);}40%{transform:translateY(0);}60%{transform:translateY(-4px);}80%,100%{transform:translateY(0);} }
+
+    h1{
+      position:fixed;inset:0 0 auto 0;height:3.5rem;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--primary-color);color:#fff;
+      font-size:clamp(1.2rem,3vw,2rem);
+      z-index:1100;user-select:none;
+      box-shadow:0 2px 6px rgba(0,0,0,.3);
+      animation:slideDown .6s ease-out;
+    }
+
+    #map{height:calc(100vh - 3.5rem);margin-top:3.5rem;width:100%;}
+
+    #painel{
+      position:fixed;top:4rem;left: 5rem !important;;
+      width:60vw;max-width:90vw;
+      background:var(--panel-bg);border-radius:.5rem;
+      box-shadow:0 2px 12px rgba(0,0,0,.2);backdrop-filter:blur(6px);
+      overflow:hidden;transition:max-height .4s ease;
+      font-size: 4vw;
+      z-index:1200;max-height:3rem;
+    }
+    #painel.aberto{max-height:60vh;}
+    #painel h2{
+      display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+      background:var(--primary-color);color:#fff;font-size:4vw;
+      padding:.75rem 1rem;cursor:pointer;user-select:none;
+    }
+    #painel h2 span{transition:transform .3s ease;}
+    #painel:not(.aberto) h2 span{transform:rotate(180deg);}
+
+    #conteudo-instrucoes{padding:1rem 1.25rem;max-height:calc(60vh - 3rem);overflow-y:auto;}
+    #instrucoes{list-style:none;}
+    #instrucoes li{margin-bottom:.5rem;line-height:1.4;cursor:pointer;transition:color .2s;}
+    #instrucoes li:hover{color:var(--primary-color);} 
+    #instrucoes li.final{font-weight:700;color:#c00;}
+    #instrucoes li.inicio{font-weight:700;color:var(--primary-color);}
+
+    .nav-btn{background:var(--primary-color);color:#fff;border:none;border-radius:4px;padding:2px 6px;font-size:.75rem;margin:2px 2px 0;cursor:pointer;transition:background .2s;}
+    .nav-btn:hover{background:#005fa3;}
+
+    .leaflet-routing-container{display:none!important;}
+    .highlight-route{stroke-dasharray:1000;animation:dash 1.5s linear forwards;}
+
+    @media(max-width:768px){
+      #painel{left:50%;right:auto;transform:translateX(-50%);}
+      #painel.aberto{transform:translateX(-50%);}
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Rota 1 IFTM</h1>
+
+  <div id="painel">
+    <h2 id="toggle"><span>▼</span> Paradas da Rota</h2>
+    <div id="conteudo-instrucoes"><ol id="instrucoes"></ol></div>
+  </div>
+
+  <div id="map"></div>
+
+  <!-- Leaflet scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script>
+    const horaSaidaPadrao = '06:00';
+
+    const nomesPontos = [
+      "AV ALTAMIRO RIBEIRO, 165 – SATÉLITE ANDRADINA",
+      "AV ALTAMIRO RIBEIRO, 541 – SATÉLITE ANDRADINA",
+      "RUA HELOISA ANDRADE CHAVES, 273 – SATÉLITE ANDRADINA",
+      "RUA DEMOSTENES PIRES, 278 – JARDIM EUROPA II",
+      "RUA JOSÉ MARIA DE CASTRO, 257 – JARDIM EUROPA II",
+      "RUA JOSÉ MARIA DE CASTRO, 67 – JARDIM EUROPA II",
+      "TRAVESSA SEBASTIÃO JUSTINO DA SILVA, 15 – JARDIM EUROPA I",
+      "ADELINA KRUGER DE ANDRADE, 168 – LAGOA AZUL I",
+      "ADELINA KRUGER DE ANDRADE, 312 – LAGOA AZUL I",
+      "AV DOS BOIADEIROS, 1894 – LAGOA AZUL I",
+      "RUA DIVA PARANAIBA, 382 – SOL NASCENTE",
+      "RUA DICO MARQUES, 256 – CAMILO CHAVES",
+      "AV DR ADRIANO FONSECA, 1082 – CAMILO CHAVES",
+      "AV DR ADRIANO FONSECA, 1304 – CAMILO CHAVES",
+      "AV NIVALDO INACIO MOREIRA, 3287 – LAGOA AZUL",
+      "AV PROF. JOSÉ VIEIRA DE MENDONÇA, 174 – NOVO MUNDO",
+      "AV PROF. JOSÉ VIEIRA DE MENDONÇA, 963 – NOVO MUNDO",
+      "AV 3, 129 – CENTRO",
+      "AV ARTHUR JUNQUEIRA DE ALMEIDA, 301 – PROGRESSO",
+      "RUA GUIMARÃES, 617 – MARIA VILELA",
+      "RUA RICARDO BALI, 662 – MARIA VILELA",
+      "AV PRES ROOSEVELT, 99 – MARIA VILELA",
+      "AV ATHAIDE QUIRINO RIBEIRO, 404 – IPIRANGA",
+      "RUA CINCINATO LOURENÇO FREIRE, 153 – IPIRANGA",
+      "RUA CINCINATO LOURENÇO FREIRE, 338 – IPIRANGA",
+      "AV 11, 292 – PROGRESSO",
+      "AV 11, 470 – PROGRESSO",
+      "RUA 20, 1102 – CENTRO",
+      "AV DEZESSETE, 1704 – CENTRO",
+      "AV DEZESSETE, 2591 – CENTRO",
+      "AV PARANAIBA, 2994 – PLATINA",
+      "AV PARANAIBA, 3286 – MARTA HELENA",
+      "AV JANDIRO VILELA, 3690 – MARTA HELENA",
+      "AV JANDIRO VILELA – POSTO MACRO",
+      "AV JANDIRO VILELA c/ AV LIMA – MARCONDES",
+      "AV DR OMAR DINIZ, 1060 – JARDIM JAMILA",
+      "AV BELARMINO VILELA JUNQUEIRA, 2091 – NOVO TEMPO 2",
+      "AV BELARMINO VILELA JUNQUEIRA c/ MINAS GERAIS – NOVO TEMPO 2",
+      "AV BELARMINO VILELA JUNQUEIRA, 37 – NOVO TEMPO 2",
+      "IFTM"
+    ];
+
+    const waypoints = [
+      L.latLng(-18.961783252574506, -49.47830092006504),
+      L.latLng(-18.96060691662972, -49.48169346650021),
+      L.latLng(-18.96262039820212, -49.48153890579591),
+      L.latLng(-18.969443511264384, -49.49454976101868),
+      L.latLng(-18.970405644422186, -49.49466533210066),
+      L.latLng(-18.971193630693282, -49.493464189950316),
+      L.latLng(-18.973895664254073, -49.48574097460822),
+      L.latLng(-18.977186903292488, -49.48888704232896),
+      L.latLng(-18.978360215307465, -49.48945640159508),
+      L.latLng(-18.980428099681387, -49.49040278810131),
+      L.latLng(-18.982426047783573, -49.490860032279116),
+      L.latLng(-18.98637315997401, -49.492988616936955),
+      L.latLng(-18.98718864519202, -49.493415403443464),
+      L.latLng(-18.98735419486132, -49.49341198346731),
+      L.latLng(-18.980962659923204, -49.487520343632305),
+      L.latLng(-18.970983844991395, -49.47828072063441),
+      L.latLng(-18.96695234843619, -49.47261037460845),
+      L.latLng(-18.965091653543066, -49.46502866111509),
+      L.latLng(-18.9617515360087, -49.460535145772994),
+      L.latLng(-18.956439796068214, -49.46162808995045),
+      L.latLng(-18.95631211414992, -49.4600763034439),
+      L.latLng(-18.959456146689398, -49.45554921878609),
+      L.latLng(-18.963480598109424, -49.44950538810166),
+      L.latLng(-18.96441683816997, -49.44910587116449),
+      L.latLng(-18.965682118207877, -49.45011310344366),
+      L.latLng(-18.969074127469526, -49.45486561878586),
+      L.latLng(-18.969350958724334, -49.456483176456935),
+      L.latLng(-18.973564385248462, -49.46399638810148),
+      L.latLng(-18.975781329221046, -49.46802064577244),
+      L.latLng(-18.97758578608206, -49.47597670159499),
+      L.latLng(-18.97959399001671, -49.47911988625287),
+      L.latLng(-18.981179309554122, -49.48161792063428),
+      L.latLng(-18.984199776796032, -49.48342810159484),
+      L.latLng(-18.9910955439647, -49.486600776456356),
+      L.latLng(-18.989125522902977, -49.485488476850605),
+      L.latLng(-18.99143152007561, -49.48030876111434),
+      L.latLng(-19.00057059515892, -49.48408223042992),
+      L.latLng(-19.005868207138573, -49.4832578689268),
+      L.latLng(-19.00978366426061, -49.482705047620755),
+      L.latLng(-19.01853232280158, -49.47734541534209)
+    ];
+
+    const painel = document.getElementById('painel');
+    document.getElementById('toggle').onclick = () => painel.classList.toggle('aberto');
+
+    // const map = L.map('map').setView(waypoints[0], 14);
+    const map = L.map('map', { zoomControl: false }).setView(waypoints[0], 14);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
+
+    const makeIcon = url => L.icon({ iconUrl: url, shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] });
+    const iconPadrao = makeIcon('https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png');
+    const iconFinal = makeIcon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png');
+    const iconUser = makeIcon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png');
+    const iconInicio = makeIcon('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png');
+
+    const wpMarkers = [];
+    let routeCoords = [], wpCoordIdx = [], highlightLine = null;
+
+    function horaParaDate(hm) {
+      const [d, m] = hm.split(':').map(Number);
+      const dt = new Date(); dt.setHours(d, m, 0, 0); return dt;
+    }
+
+    function bounceMarker(mk) {
+      if (!mk._icon) return;
+      mk._icon.classList.add('bounce');
+      setTimeout(() => mk._icon.classList.remove('bounce'), 700);
+    }
+
+    function highlightSegment(idx) {
+      if (highlightLine) { map.removeLayer(highlightLine); highlightLine = null; }
+      if (idx < 0 || idx >= wpCoordIdx.length - 1) return;
+      const seg = routeCoords.slice(wpCoordIdx[idx], wpCoordIdx[idx + 1] + 1);
+      highlightLine = L.polyline(seg, { color: 'red', weight: 6, opacity: .9, className: 'highlight-route' }).addTo(map);
+    }
+
+    function focusWaypoint(idx) {
+      if (wpMarkers[idx]) {
+        map.setView(wpMarkers[idx].getLatLng(), 15, { animate: true });
+        wpMarkers[idx].openPopup();
+        highlightSegment(idx);
+        bounceMarker(wpMarkers[idx]);
+      }
+    }
+
+    const routing = L.Routing.control({
+      waypoints,
+      show: false,
+      draggableWaypoints: false,
+      addWaypoints: false,
+      router: L.Routing.osrmv1({ serviceUrl: 'https://router.project-osrm.org/route/v1' }),
+      lineOptions: { styles: [{ color: 'blue', weight: 5, opacity: .7 }] },
+      createMarker: (i, wp) => {
+        let icon = iconPadrao;
+        if (i === 0) icon = iconInicio;
+        else if (i === waypoints.length - 1) icon = iconFinal;
+        const mk = L.marker(wp.latLng, { icon }); mk.idx = i; wpMarkers[i] = mk; return mk;
+      }
+    }).addTo(map);
+
+    routing.on('routesfound', e => {
+      const lista = document.getElementById('instrucoes');
+      lista.innerHTML = '';
+      const rota = e.routes[0]; routeCoords = rota.coordinates; wpCoordIdx = [0];
+      rota.instructions.forEach(instr => {
+        if (instr.type === 'WaypointReached' || instr.type === 'DestinationReached') wpCoordIdx.push(instr.index);
+      });
+
+      const horaSaida = horaParaDate(horaSaidaPadrao); let acumulado = 0, idxWp = 1;
+
+      wpMarkers[0].bindPopup(`<strong>${nomesPontos[0]}</strong><br>Partida: ${horaSaidaPadrao}<br><div class='popup-nav'><button class='nav-btn' data-dir='1'>próximo →</button></div>`);
+      const liInicio = document.createElement('li');
+      liInicio.textContent = `${nomesPontos[0]} – partida às ${horaSaidaPadrao}`;
+      liInicio.dataset.idx = 0;
+      liInicio.classList.add('inicio');
+      liInicio.onclick = () => focusWaypoint(0);
+      lista.appendChild(liInicio);
+
+      rota.instructions.forEach(instr => {
+        acumulado += instr.time;
+        const chegou = instr.type === 'WaypointReached' || instr.type === 'DestinationReached';
+        if (chegou && wpMarkers[idxWp]) {
+          const chegada = new Date(horaSaida.getTime() + acumulado * 1000);
+          const horaTxt = chegada.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          const nome = nomesPontos[idxWp] || `Ponto ${idxWp + 1}`;
+          let popup = `<strong>${nome}</strong><br>Chegada: ${horaTxt}<br><div class='popup-nav'>`;
+          if (idxWp > 0) popup += `<button class='nav-btn' data-dir='-1'>← anterior</button>`;
+          if (idxWp < wpMarkers.length - 1) popup += `<button class='nav-btn' data-dir='1'>próximo →</button>`;
+          popup += '</div>';
+          wpMarkers[idxWp].bindPopup(popup);
+
+          const li = document.createElement('li');
+          li.textContent = `${nome} – chegada às ${horaTxt}`;
+          li.dataset.idx = idxWp;
+          li.onclick = () => focusWaypoint(+li.dataset.idx);
+          if (idxWp === waypoints.length - 1) li.classList.add('final');
+          lista.appendChild(li);
+          idxWp++;
+        }
+      });
+    });
+
+    map.on('popupopen', e => {
+      const idx = e.popup._source.idx;
+      e.popup.getElement().querySelectorAll('.nav-btn').forEach(btn => {
+        btn.onclick = () => {
+          const next = idx + parseInt(btn.dataset.dir, 10);
+          if (next >= 0 && next < wpMarkers.length) focusWaypoint(next);
+        }
+      });
+      highlightSegment(idx);
+    });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        L.marker([pos.coords.latitude, pos.coords.longitude], { icon: iconUser }).addTo(map).bindPopup('Você está aqui');
+      });
+    }
+  </script>
+</body>
+</html>

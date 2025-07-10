@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Instituição</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f5f5f5;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="registerForm">
+    <h2>Cadastro de Instituição</h2>
+
+    <label for="username">Nome da Instituição</label>
+    <input type="text" id="username" placeholder="Ex: IFTM Campus Ituiutaba" required />
+
+    <label for="email">Email Institucional</label>
+    <input type="email" id="email" placeholder="Ex: contato@if.com.br" required />
+
+    <label for="telefone">Telefone</label>
+    <input type="text" id="telefone" placeholder="Ex: (34) 99999-9999" required />
+
+    <label for="cnpj">CNPJ</label>
+    <input type="text" id="cnpj" placeholder="Ex: 00.000.000/0001-00" required />
+
+    <label for="cep">CEP</label>
+    <input type="text" id="cep" placeholder="Ex: 38300-000" required />
+
+    <label for="endereco">Endereço</label>
+    <input type="text" id="endereco" placeholder="Ex: Rua Exemplo, Centro" required />
+
+    <label for="numero">Número</label>
+    <input type="text" id="numero" placeholder="Ex: 123" required />
+
+    <label for="bairro">Bairro</label>
+    <input type="text" id="bairro" placeholder="Ex: Centro" required />
+
+    <label for="password">Senha</label>
+    <input type="password" id="password" placeholder="Senha de acesso" required />
+
+    <label for="confirmPassword">Confirmar Senha</label>
+    <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required />
+
+    <button type="submit">Cadastrar Instituição</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
